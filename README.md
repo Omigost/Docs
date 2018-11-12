@@ -1,10 +1,8 @@
-# ![Pipeline badge status](https://gitlab.com/styczynski/aws-opt-tool-docs/badges/master/build.svg) AWS Cost Optimization Tool Project
-
-![AWS Cost Optimization Tool Logo](https://gitlab.com/styczynski/aws-opt-tool-docs/raw/master/logo.png)
+# Omigost Project
 
 ## Brief
 
-This repository contains documents for the *AWS Optimization Tool Project*.
+This repository contains documents for the *Omigost Optimization Tool Project*.
 
 The compiled documents can be found in /dist directory.
 
