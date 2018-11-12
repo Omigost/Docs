@@ -34,4 +34,4 @@ MIT License, 2018
 - Michał Balcerzak
 - Michał Ołtarzewski
 - Piotr Styczyński
-- Gor Safaryn
+- Gor Safaryan
