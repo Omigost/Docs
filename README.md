@@ -1,4 +1,4 @@
-# Omigost Project
+# Omigost Project :taco:
 
 ## Brief
 
