@@ -1,5 +1,7 @@
 # Omigost Project :taco:
 
+[![Build Status](https://travis-ci.org/Omigost/Docs.svg?branch=master)](https://travis-ci.org/Omigost/Docs)
+
 ## Brief
 
 This repository contains documents for the *Omigost Optimization Tool Project*.
