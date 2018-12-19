@@ -96,6 +96,8 @@
 
 % End of definitions
 
+\usepackage{lmodern}
+
 \begin{document}
 \maketitle
 
@@ -104,156 +106,212 @@
   \input{src/abstract.tex}
 \end{abstract}
 
-\tableofcontents
-%\listoffigures
-%\listoftables
+\chapter*{Contents}
+
+\begin{enumerate}
+    \item Introduction
+        \begin{enumerate}
+            \item [1.1] Overview
+            \item [1.2] Structure of thesis 
+        \end{enumerate}
+    \item Problem statement
+        \begin{enumerate}
+            \item [2.1] Motivation
+            \item [2.2] Overview of exisiting solutions
+            \item [2.3] Our solution
+        \end{enumerate}
+    \item Tool for AWS cost optimisation
+        \begin{enumerate}
+            \item [3.1] Technologies stack
+            \item [3.2] Overall Architecture
+            \item [3.3] Data models
+            \item [3.4] Views and design
+            \item [3.5] API
+            \item [3.6] Communication integration
+            \item [3.7] Configuration
+        \end{enumerate}
+    \item Summary
+    \item [A] Deployment and integration guide
+\end{enumerate}
 
 \chapter{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
-\subimport{./}{./src/introduction.tex}
+
+    % \includegraphics[width=\textwidth*\real{0.4}]{imgs/logo.png}
+
+    \section{Overview}
+
+        \subsection{What is cloud computing}
+
+        Cloud computing became one of the most important paradigm shifts in the area of real world software engineering.
+        It has reshaped the whole process of how applications are developed, deployed and reduced the amount of upfront
+        investment required to start an internet business. While commercial cloud computing services were first offered
+        in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT,
+        GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud
+        concept was widespread in 60ies (\cite{BMarkus}).
+
+        \subsection{The term itself}
+
+        The term “Cloud computing” can refer to every layer of application stack:
+        hardware, hosting platform, software and even to a single function.
+        Cloud Computing refers to both the applications delivered as services over the Internet and
+        the hardware and systems software in the data centers that provide those services.
+        The services themselves have long been referred to as Software as a Service (SaaS) (\cite{MArmbrust}).
+        Namely, it is a shared pool of computer resources such as computing capacity,
+        transient and persistent memory, which can be acquired or released on demand.
+        The undisputed power of cloud computing constitutes in its elasticity and granularity:
+        i.e. it allows users to ask for hundreds of computers for only 5 minute usage which
+        are shipped during several minutes.
+        Such services are usually offered over remote network connection and users are billed
+        for the portion of the resources they have used.
+        Depending on the cloud infrastructure type the payment models can be different~\cite{GLaatikainen},
+        but the common spendings are associated with data storage, data transfer, and computing timeshare.
+
+        \subsection{Cloud resources}
+
+        Cloud computing has introduced 3 new aspects which are radically different from a traditional
+        computing paradigm in terms of hardware infrastructure. 
+        The availability of practically infinite on demand computing resources,
+        which allows users to deploy applications without any kind of resource planning.  
+        The elimination of massive initial financial commitment, therefore allowing small companies to increase
+        their hardware usage proportional to their needs.
+        The ability to granularly allocate computing resources on any kind of timeframe
+        (from minutes up to days etc.), as well as the ability to release them as there is no more need.
+
+        Depending on the service offered by the provider we differentiate 3 main models of cloud computing:
+
+        \begin{enumerate}
+            \item Infrastructure as a service (IAAS)
+            \item Platform as a service (PAAS)
+            \item Software as a service(SAAS)
+        \end{enumerate}
+
+        \subsection{IAAS - Infrastructure as a service}
+
+        In such form of service, the provider allocates an instance of virtual machine for the client 
+        and ensures that minimal building blocks for the IT infrastructure are present:
+        network, storage, computing capacity, load balancer, VLAN etc.
+        Usually providers of such services run pools of hypervisors such as Xen, VMware, QEMU etc which host and manage
+        those virtual machines. From the user perspective it usually looks like a command line interface
+        through which user has full control over the allocated virtual machine. Some of the well known
+        services are Amazon EC2, Google Compute Engine, Microsoft Azure IAAS.
+
+        \subsection{PAAS - Platform as a service}
+
+        Platform as a service alleviates the need for the developers to manage the operating system and
+        provides programming language specific execution environment as well as the underlying structure
+        (hardware, network, storage etc). This adds another layer of convenience over IAAS making the deployment
+        and the development of applications much more fluent process. While users benefit from the automatic software maintenance,
+        OS security patches etc, they also lose full control over the virtual machine instances. AWS Elastic Beanstalk, Heroku
+        and Google App Engine are some of the most popular PAAS services.
+
+        \subsection{SAAS - Software as a service}
+
+        This form of service takes control of every layer of application and the user has nothing to do with
+        the underlying infrastructure. This is by all means one of the most popular form of cloud computing as
+        it might not require any kind of technical background to be used. Examples of SAAS services are Google
+        Cloud Vision, Google Docs, Microsoft Office 365. 
 
 \chapter{Problem statement}
 
-\includegraphics[width=\textwidth*\real{0.4}]{imgs/sombrerro.png}
+    \section{Motivation}
 
-\section{Evolution of cloud computing}
+        As the are plenty of various billing models for cloud services~\cite{GLaatikainen}
+        the effective management of them became a tough problem.
+        The ease of resource allocation led to situation when tracking tiniest details of billings is an unaffordable challenge.
 
-\subsection{What is cloud computing}
+        Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
+        Cloudability~\cite{Cloudability}, Apptio~\cite{Aptio}, Snow Software~\cite{SnowSoftware} and many more.
 
-Cloud computing became one of the most important paradigm shifts in the area of real world software engineering.
-It has reshaped the whole process of how applications are developed, deployed and reduced the amount of upfront
-investment required to start an internet business. While commercial cloud computing services were first offered
-in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT,
-GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud
-concept was widespread in 60ies (\cite{BMarkus}).
+        \subsection{Current state of the tooling}
 
-\subsection{The term itself}
+        The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
+        The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
+        Amazon as one on the leading cloud providers offers tools for exploration of expenses including public APIs~\cite{AWSCostManagement},
+        but the tools are rather simple and does not satisfy all the needs of potential clients.
 
-The term “Cloud computing” can refer to every layer of application stack:
-hardware, hosting platform, software and even to a single function.
-Cloud Computing refers to both the applications delivered as services over the Internet and
-the hardware and systems software in the data centers that provide those services.
-The services themselves have long been referred to as Software as a Service (SaaS) (\cite{MArmbrust}).
-Namely, it is a shared pool of computer resources such as computing capacity,
-transient and persistent memory, which can be acquired or released on demand.
-The undisputed power of cloud computing constitutes in its elasticity and granularity:
-i.e. it allows users to ask for hundreds of computers for only 5 minute usage which
-are shipped during several minutes.
-Such services are usually offered over remote network connection and users are billed
-for the portion of the resources they have used.
-Depending on the cloud infrastructure type the payment models can be different~\cite{GLaatikainen},
-but the common spendings are associated with data storage, data transfer, and computing timeshare.
+        The common case that is unresolved is the distribution of RnD and development resources.
+        We observed there exist no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
+        Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
 
-\subsection{Cloud resources}
+        \subsection{The Solution}
 
-Cloud computing has introduced 3 new aspects which are radically different from a traditional
-computing paradigm in terms of hardware infrastructure. 
-The availability of practically infinite on demand computing resources,
-which allows users to deploy applications without any kind of resource planning.  
-The elimination of massive initial financial commitment, therefore allowing small companies to increase
-their hardware usage proportional to their needs.
-The ability to granularly allocate computing resources on any kind of timeframe
-(from minutes up to days etc.), as well as the ability to release them as there is no more need.
+        As there exist an obvious gap in the market, Omigost tries to provide these unique features to the client:
 
-Depending on the service offered by the provider we differentiate 3 main models of cloud computing:
+        \begin{enumerate}
+            \item Easy cloud management without expensive licenses or complex knowledge
+            \item Ability to provide intuitive interface for individual workers to request resources
+            \item Painless integration with existing business flows
+        \end{enumerate}
 
-\begin{enumerate}
-    \item Infrastructure as a service (IAAS)
-    \item Platform as a service (PAAS)
-    \item Software as a service(SAAS)
-\end{enumerate}
-
-\subsection{IAAS - Infrastructure as a service}
-
-In such form of service, the provider allocates an instance of virtual machine for the client 
-and ensures that minimal building blocks for the IT infrastructure are present:
-network, storage, computing capacity, load balancer, VLAN etc.
-Usually providers of such services run pools of hypervisors such as Xen, VMware, QEMU etc which host and manage
-those virtual machines. From the user perspective it usually looks like a command line interface
-through which user has full control over the allocated virtual machine. Some of the well known
-services are Amazon EC2, Google Compute Engine, Microsoft Azure IAAS.
-
-\subsection{PAAS - Platform as a service}
-
-Platform as a service alleviates the need for the developers to manage the operating system and
-provides programming language specific execution environment as well as the underlying structure
-(hardware, network, storage etc). This adds another layer of convenience over IAAS making the deployment
-and the development of applications much more fluent process. While users benefit from the automatic software maintenance,
-OS security patches etc, they also lose full control over the virtual machine instances. AWS Elastic Beanstalk, Heroku
-and Google App Engine are some of the most popular PAAS services.
-
-\subsection{SAAS - Software as a service}
-
-This form of service takes control of every layer of application and the user has nothing to do with
-the underlying infrastructure. This is by all means one of the most popular form of cloud computing as
-it might not require any kind of technical background to be used. Examples of SAAS services are Google
-Cloud Vision, Google Docs, Microsoft Office 365. 
-
-\section{Motivation}
-
-As the are plenty of various billing models for cloud services~\cite{GLaatikainen}
-the effective management of them became a tough problem.
-The ease of resource allocation led to situation when tracking tiniest details of billings is an unaffordable challenge.
-
-Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
-Cloudability~\cite{Cloudability}, Apptio~\cite{Aptio}, Snow Software~\cite{SnowSoftware} and many more.
-
-\subsection{Current state of the tooling}
-
-The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
-The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
-Amazon as one on the leading cloud providers offers tools for exploration of expenses including public APIs~\cite{AWSCostManagement},
-but the tools are rather simple and does not satisfy all the needs of potential clients.
-
-The common case that is unresolved is the distribution of RnD and development resources.
-We observed there exist no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
-Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
-
-\subsection{The Solution}
-
-As there exist an obvious gap in the market, Omigost tries to provide these unique features to the client:
-
-\begin{enumerate}
-    \item Easy cloud management without expensive licenses or complex knowledge
-    \item Ability to provide intuitive interface for individual workers to request resources
-    \item Painless integration with existing business flows
-\end{enumerate}
-
-\begin{thebibliography}{99}
-\addcontentsline{toc}{chapter}{Bibliography}
-
-\bibitem[MArmbrust]{MArmbrust}
-Michael Armbrust Armando Fox Rean Griffith Anthony D. Joseph Randy H. Katz et al.
-\textit{Above the Clouds: A Berkeley View of Cloud Computing} 
-Technical Report No. UCB/EECS-2009-28
-
-\bibitem[AWSDocs]{AWSDocs}
-Amazon
-\textit{Amazon AWS documentation} 
+    \section{Overview of exisiting solutions}
     
-\bibitem[GLaatikainen]{GLaatikainen}
-Laatikainen, G., Ojala, A., Mazhelis, O. (2013)
-\textit{Cloud Services Pricing Models}
+        Overview of available solutions for optimising AWS costs
+        Businesses that choose to rely upon cloud services often reach a point where resources they’re using up become less and less manageable. They are 
+        
+        \begin{enumerate}
+            \item Both AWS and third party
+            \item Various niches (budget alerting, instance alerting management, cost analytics)
+        \end{enumerate}
 
-\bibitem[BMarkus]{BMarkus}
-MARKUS BÖHM, STEFANIE LEIMEISTER, CHRISTOPH RIEDL, HELMUT KRCMAR
-\textit{Cloud Computing and Computing Evolution}
-Technische Universität München (TUM), Germany
+        Tools available on market:
+        
+        \begin{enumerate}
+            \item AWS Budgets
+        \end{enumerate}
+        
+        \subsection{AWS Budgets}
 
-\bibitem[Cloudability]{Cloudability}
-\textit{https://www.cloudability.com/product/transform/}
+        AWS Budgets is a part of Amazon Web Services that allows to set limits of a certain types
+        that apply to a chosen period of time. When a limit is either exceeded,
+        close to be exceeded or is forecasted to exceed the configured threshold before the end of that period,
+        the administrator of that account is notified by email. Types of resources one can put this kind of a budget on include:
+        
+        \begin{enumerate}
+            \item Money spent in total or on a certain type of machines
+            \item Utilisation of selected services
+            \item Utilisation or coverage of reserved instances
+        \end{enumerate}
 
-\bibitem[CloudabilityAlerts]{CloudabilityAlerts}
-\textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}
+        % Stax.io
+        % AWS Cost Explorer and Management
+        % https://aws.amazon.com/aws-cost-management/reserved-instance-reporting/
 
-\bibitem[Aptio]{Aptio}
-\textit{https://www.apptio.com/}
+    
+\begin{thebibliography}{99}
+    \addcontentsline{toc}{chapter}{Bibliography}
 
-\bibitem[SnowSoftware]{SnowSoftware}
-\textit{https://go.snowsoftware.com/}
+    \bibitem[MArmbrust]{MArmbrust}
+    Michael Armbrust Armando Fox Rean Griffith Anthony D. Joseph Randy H. Katz et al.
+    \textit{Above the Clouds: A Berkeley View of Cloud Computing} 
+    Technical Report No. UCB/EECS-2009-28
 
-\bibitem[AWSCostManagement]{AWSCostManagement}
-\textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html}
+    \bibitem[AWSDocs]{AWSDocs}
+    Amazon
+    \textit{Amazon AWS documentation} 
+        
+    \bibitem[GLaatikainen]{GLaatikainen}
+    Laatikainen, G., Ojala, A., Mazhelis, O. (2013)
+    \textit{Cloud Services Pricing Models}
+
+    \bibitem[BMarkus]{BMarkus}
+    MARKUS BÖHM, STEFANIE LEIMEISTER, CHRISTOPH RIEDL, HELMUT KRCMAR
+    \textit{Cloud Computing and Computing Evolution}
+    Technische Universität München (TUM), Germany
+
+    \bibitem[Cloudability]{Cloudability}
+    \textit{https://www.cloudability.com/product/transform/}
+
+    \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
+    \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}
+
+    \bibitem[Aptio]{Aptio}
+    \textit{https://www.apptio.com/}
+
+    \bibitem[SnowSoftware]{SnowSoftware}
+    \textit{https://go.snowsoftware.com/}
+
+    \bibitem[AWSCostManagement]{AWSCostManagement}
+    \textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html}
 
 \end{thebibliography}
 
