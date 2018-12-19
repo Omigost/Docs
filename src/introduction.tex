@@ -25,6 +25,8 @@
 \documentclass[licencjacka,en]{thesisclass}
 \usepackage{graphicx}
 \usepackage{grffile}
+\usepackage{svg}
+\usepackage{calc}
 
 \author{
   Michał Balcerzak
@@ -36,11 +38,11 @@
   Gor Safaryn
 }
 
-\title{AWS Cost Optimization Tool}
+\title{AWS Cost Optimization Tool - Omigost}
 
 \begin{document}
 
-\includegraphics[width=\textwidth]{imgs/logo.png}
+\includegraphics[width=\textwidth*\real{0.6}]{imgs/logo.png}
 
 \subsubsection{Statement of the problem}
 
@@ -50,7 +52,7 @@ Unfortunately existing toolkit is either very primitive or targets billion dolla
 
 \subsubsection{The solution}
 
-The AWS Cost Optimization Tool is a system that offers reliable solution adressing that issue. We focus on one of the biggest cloud platforms - Amazon Web Services, which is maintained by Amazon.
+The Omigost is a system that offers reliable solution adressing that issue. We focus on one of the biggest cloud platforms - Amazon Web Services, which is maintained by Amazon.
 Whole system intends not only to provide easy cost insight, but also help with basic cost optimization.
 Despite collecting and storing AWS data the system will offer users following core features:
 
@@ -61,24 +63,5 @@ Despite collecting and storing AWS data the system will offer users following co
   \item Shutdown of redundant running AWS products
   \item Charts useful for cost management
 \end{itemize}
-
-\hspace{35cm}
-
-\section*{}
-
-\begin{quote}
-  AWS Cost Optimization Tool Project, MIT Licensing 2018, Document version 1.0
-  \newline
-  \newline
-  Gor Safaryan
-  \newline
-  Michał Balcerzak
-  \newline
-  Michał Ołtarzewski
-  \newline
-  Piotr Styczyński
-  \newline
-
-\end{quote}
 
 \end{document}

@@ -1,5 +1,5 @@
 %
-% AWS Cost Optimization Tool Project
+% Omigost Project
 %
 % MIT License
 % Copyright 2018
@@ -27,6 +27,10 @@
 \documentclass[licencjacka,en]{thesisclass}
 \usepackage{standalone}
 \usepackage{import}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{svg}
+\usepackage{calc}
 
 % TODO
 % Authors of the thesis:
@@ -35,8 +39,8 @@
 \autorii{Michał Ołtarzewski}{000000}
 \autoriii{Gor Safaryn}{000000}
 
-\title{AWS Cost Optimization Tool}
-\titlepl{Narzędzie Optymalizacji Kosztów AWS}
+\title{AWS Cost Optimization Tool - Omigost}
+\titlepl{Narzędzie Optymalizacji Kosztów AWS Omigost}
 
 %\tytulang{Implementation of services for reliable AWS services cost tracking, budget management and heuristic optimalizations}
 
@@ -90,12 +94,49 @@
 %\listoffigures
 %\listoftables
 
-\chapter*{Wprowadzenie}
-\addcontentsline{toc}{chapter}{Wprowadzenie}
+\chapter{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 \subimport{./}{./src/introduction.tex}
-  
+
+\chapter{Problem statement}
+
+\includegraphics[width=\textwidth*\real{0.4}]{imgs/sombrerro.png}
+
+\section{Motivation}
+
+\subsection{What is cloud computing}
+
+Cloud computing became one of the most important paradigm shifts in the area of real world software engineering. It has reshaped the whole process of how applications are developed, deployed and reduced the amount of upfront investment required to start an internet business. While commercial cloud computing services were first offered in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT, GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud concept was widespread in 60ies (Markus et al.)
+
+\subsection{The term itself}
+
+The term “Cloud computing” can refer to every layer of application stack: hardware, hosting platform, software and even to a single function. Cloud Computing refers to both the applications delivered as services over the Internet and the hardware and systems software in the data centers that provide those services. The services themselves have long been referred to as Software as a Service (SaaS) ( Armbrust et al.) .
+Namely, it is a shared pool of computer resources such as computing capacity, transient and persistent memory, which can be acquired or released on demand. The undisputed power of cloud computing constitutes in its elasticity and granularity: i.e. it allows users to ask for hundreds of computers for only 5 minute usage which are shipped during several minutes.  Such services are usually offered over remote network connection and users are billed for the portion of the resources they have used. Depending on the cloud infrastructure type the payment models can be different, but the common spendings are associated with data storage, data transfer, and computing timeshare (Cloud Services Pricing Models, Laatikainen, G. et al. 2013).
+
+\subsection{Cloud resources}
+
+Cloud computing has introduced 3 new aspects which are radically different from a traditional computing paradigm in terms of hardware infrastructure. 
+The availability of practically infinite on demand computing resources, which allows users to deploy applications without any kind of resource planning.  
+The elimination of massive initial financial commitment, therefore allowing small companies to increase their hardware usage proportional to their needs.
+The ability to granularly allocate computing resources on any kind of timeframe (from minutes up to days etc.), as well as the ability to release them as there is no more need.
+
+Depending on the service offered by the provider we differentiate 3 main models of cloud computing: Infrastructure as a service (IAAS), Platform as a service (PAAS) and Software as a service(SAAS).
+
+\subsection{IAAS - Infrastructure as a service}
+
+In such form of service, the provider allocates an instance of virtual machine for the client 
+and ensures that minimal building blocks for the IT infrastructure are present: network, storage, computing capacity, load balancer, VLAN  etc. Usually providers of such services run pools of hypervisors such as Xen, VMware, QEMU etc which host and manage those virtual machines. From the user perspective it usually looks like a command line interface through which user has full control over the allocated virtual machine. Some of the well known services are Amazon EC2, Google Compute Engine, Microsoft Azure IAAS.
+
+\subsection{PAAS - Platform as a service}
+
+Platform as a service alleviates the need for the developers to manage the operating system and provides programming language specific execution environment as well as the underlying structure (hardware, network, storage etc). This adds another layer of convenience over IAAS making the deployment and the development of applications much more fluent process. While users benefit from the automatic software maintenance, OS security patches etc, they also lose full control over the virtual machine instances. AWS Elastic Beanstalk, Heroku and Google App Engine are some of the most popular PAAS services.
+
+\subsection{SAAS - Software as a service}
+
+This form of service takes control of every layer of application and the user has nothing to do with the underlying infrastructure. This is by all means one of the most popular form of cloud computing as it might not require any kind of technical background to be used. Examples of SAAS services are Google Cloud Vision, Google Docs, Microsoft Office 365. 
+
 \begin{thebibliography}{99}
-\addcontentsline{toc}{chapter}{Bibliografia}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 % TODO
 % Place for the bibliography
