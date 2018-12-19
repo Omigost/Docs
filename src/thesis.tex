@@ -64,28 +64,19 @@
 % The thesis supervisor
 \opiekun{dr Janina Zofia Mincer-Daszkiewicz\\
   Instytut Informatyki\\
-  }
+}
 
 % Date in format <month> <year>
 \date{May 2018}
 
 % Doctrine of classification as it states the Socrates-Erasmus:
-% TODO
-\dziedzina{ 
-%11.0 Matematyka, Informatyka:\\ 
-%11.1 Matematyka\\ 
-% 11.2 Statystyka\\ 
-11.3 Informatyka\\ 
-%11.4 Sztuczna inteligencja\\ 
-%11.5 Nauki aktuarialne\\
-%11.9 Inne nauki matematyczne i informatyczne
+\dziedzina{  
+11.3 Informatyka\\
 }
 
 % TODO
 % Subject classification due to ACM
-\klasyfikacja{D. Software\\
-  D.127. Blabalgorithms\\
-  D.127.6. Numerical blabalysis}
+\klasyfikacja{D. Software}
 
 % Keywords list
 \keywords{system, aws, cost, optimization, heuristic, cost management, koszt, aws, optymalizacja, heurystyka kosztowa}
@@ -222,8 +213,6 @@
         Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
         Cloudability~\cite{Cloudability}, Apptio~\cite{Aptio}, Snow Software~\cite{SnowSoftware} and many more.
 
-        \subsection{Current state of the tooling}
-
         The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
         The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
         Amazon as one on the leading cloud providers offers tools for exploration of expenses including public APIs~\cite{AWSCostManagement},
@@ -232,8 +221,6 @@
         The common case that is unresolved is the distribution of RnD and development resources.
         We observed there exist no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
         Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
-
-        \subsection{The Solution}
 
         As there exist an obvious gap in the market, Omigost tries to provide these unique features to the client:
 
