@@ -53,8 +53,9 @@
 \autorii{Michał Ołtarzewski}{382783}
 \autoriii{Gor Safaryan}{381501}
 
-\title{AWS Cost Optimization Tool - Omigost}
-\titlepl{Narzędzie Optymalizacji Kosztów AWS Omigost}
+\title{Omigost - AWS Cost Optimization Tool}
+\titlepl{Omigost - Narzędzie Optymalizacji Kosztów AWS}
+% TODO imo nie "dla AWS" bo chodzi o koszty chmury, a nie narzedzie dla chmury - do obgadania
 
 %\tytulang{Implementation of services for reliable AWS services cost tracking, budget management and heuristic optimalizations}
 
@@ -72,6 +73,7 @@
 % Doctrine of classification as it states the Socrates-Erasmus:
 \dziedzina{  
 11.3 Informatyka\\
+% TODO the above in English
 }
 
 % TODO
@@ -79,7 +81,8 @@
 \klasyfikacja{D. Software}
 
 % Keywords list
-\keywords{system, aws, cost, optimization, heuristic, cost management, koszt, aws, optymalizacja, heurystyka kosztowa}
+\keywords{cloud, system, AWS, cost, optimization, heuristic, cost management}
+% TODO precise keywords
 
 % TODO
 % Place for custom definitions and environments
@@ -103,7 +106,7 @@
     \item Introduction
         \begin{enumerate}
             \item [1.1] Overview
-            \item [1.2] Structure of thesis 
+            \item [1.2] Structure of the thesis 
         \end{enumerate}
     \item Problem statement
         \begin{enumerate}
@@ -125,6 +128,8 @@
     \item [A] Deployment and integration guide
 \end{enumerate}
 
+% TODO ta dluga uwaga na czwartej, pustej stronie z uwagami
+
 \chapter{Introduction}
 
     % \includegraphics[width=\textwidth*\real{0.4}]{imgs/logo.png}
@@ -134,7 +139,7 @@
         \subsection{What is cloud computing}
 
         Cloud computing became one of the most important paradigm shifts in the area of real world software engineering.
-        It has reshaped the whole process of how applications are developed, deployed and reduced the amount of upfront
+        It has reshaped the whole process of how applications are developed and deployed, and reduced the amount of upfront
         investment required to start an internet business. While commercial cloud computing services were first offered
         in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT,
         GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud
@@ -144,7 +149,7 @@
 
         The term “Cloud computing” can refer to every layer of application stack:
         hardware, hosting platform, software and even to a single function.
-        Cloud Computing refers to both the applications delivered as services over the Internet and
+        Cloud computing refers to both the applications delivered as services over the Internet and
         the hardware and systems software in the data centers that provide those services.
         The services themselves have long been referred to as Software as a Service (SaaS)~\cite{MArmbrust}.
         Namely, it is a shared pool of computer resources such as computing capacity,
@@ -176,7 +181,7 @@
             \item Software as a service(SAAS)
         \end{enumerate}
 
-        \subsection{IAAS - Infrastructure as a service}
+        \subsection{IAAS -- Infrastructure as a service}
 
         In such form of service, the provider allocates an instance of virtual machine for the client 
         and ensures that minimal building blocks for the IT infrastructure are present:
@@ -186,7 +191,7 @@
         through which user has full control over the allocated virtual machine. Some of the well known
         services are Amazon EC2, Google Compute Engine, Microsoft Azure IAAS.
 
-        \subsection{PAAS - Platform as a service}
+        \subsection{PAAS -- Platform as a service}
 
         Platform as a service alleviates the need for the developers to manage the operating system and
         provides programming language specific execution environment as well as the underlying structure
@@ -195,7 +200,7 @@
         OS security patches etc, they also lose full control over the virtual machine instances. AWS Elastic Beanstalk, Heroku
         and Google App Engine are some of the most popular PAAS services.
 
-        \subsection{SAAS - Software as a service}
+        \subsection{SAAS -- Software as a service}
 
         This form of service takes control of every layer of application and the user has nothing to do with
         the underlying infrastructure. This is by all means one of the most popular form of cloud computing as
@@ -213,16 +218,17 @@
         Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
         Cloudability~\cite{Cloudability}, Apptio~\cite{Apptio}, Snow Software~\cite{SnowSoftware} and many more.
 
-        The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
+        The tooling that exists is targetting wideworld-scale companies that are able to require expensive licenses and hire cost-optimization teams.
         The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
         Amazon as one on the leading cloud providers offers tools for exploration of expenses including public APIs~\cite{AWSCostManagement},
-        but the tools are rather simple and does not satisfy all the needs of potential clients.
+        but the tools are rather simple and do not satisfy all the needs of potential clients.
 
-        The common case that is unresolved is the distribution of RnD and development resources.
-        We observed there exist no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
+        The common case that is unresolved is the distribution of research and development resources.
+        We observed that there exists no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
         Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
 
         As there exist an obvious gap in the market, Omigost tries to provide these unique features to the client:
+        % TODO zapytac o usage slowa Omigost tutaj
 
         \begin{enumerate}
             \item Easy cloud management without expensive licenses or complex knowledge
@@ -234,7 +240,7 @@
     
         Businesses that choose to rely upon cloud services often reach a point where resources
 	they’re using up gradually become less and less manageable. As the problem is well known
-	to the cloud market, both Amazon and other third-party companiesmade attempts to fulfill
+	to the cloud market, both Amazon and other third-party companies made attempts to fulfill
 	% TODO add some source
 these needs by creating custom software fitting certain roles in optimising AWS expenses that include:        
 
@@ -245,7 +251,7 @@ these needs by creating custom software fitting certain roles in optimising AWS 
 % TODO elaborate
         \end{enumerate}
 
-        Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud include:
+        Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud are described in the following sections.
         
         \subsection{AWS Budgets}
 
@@ -294,6 +300,7 @@ these needs by creating custom software fitting certain roles in optimising AWS 
 % TODO change tabulation to spaces
 
     
+% TODO apply suggestions about the bibliography
 \begin{thebibliography}{99}
     \addcontentsline{toc}{chapter}{Bibliography}
 
