@@ -4,10 +4,10 @@
 % MIT License
 % Copyright 2018
 %
-% Piotr Styczyński     (Univeristy of Warsaw)
-% Michał Balcerzak     (Univeristy of Warsaw)
-% Michał Ołtarzewski   (Univeristy of Warsaw)
-% Gor Safaryn          (Univeristy of Warsaw)
+% Piotr Styczyński     (University of Warsaw)
+% Michał Balcerzak     (University of Warsaw)
+% Michał Ołtarzewski   (University of Warsaw)
+% Gor Safaryan         (University of Warsaw)
 %
 % Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
 % to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -211,7 +211,7 @@
         The ease of resource allocation led to situation when tracking tiniest details of billings is an unaffordable challenge.
 
         Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
-        Cloudability~\cite{Cloudability}, Apptio~\cite{Aptio}, Snow Software~\cite{SnowSoftware} and many more.
+        Cloudability~\cite{Cloudability}, Apptio~\cite{Apptio}, Snow Software~\cite{SnowSoftware} and many more.
 
         The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
         The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
@@ -232,19 +232,20 @@
 
     \section{Overview of exisiting solutions}
     
-        Overview of available solutions for optimising AWS costs
-        Businesses that choose to rely upon cloud services often reach a point where resources they’re using up become less and less manageable. They are 
-        
+        Businesses that choose to rely upon cloud services often reach a point where resources
+	they’re using up gradually become less and less manageable. As the problem is well known
+	to the cloud market, both Amazon and other third-party companiesmade attempts to fulfill
+	% TODO add some source
+these needs by creating custom software fitting certain roles in optimising AWS expenses that include:        
+
         \begin{enumerate}
-            \item Both AWS and third party
-            \item Various niches (budget alerting, instance alerting management, cost analytics)
+		\item configuring budget limits and alerting users when it is exceeded,
+		\item instance alerting management,
+		\item cost analytics
+% TODO elaborate
         \end{enumerate}
 
-        Tools available on market:
-        
-        \begin{enumerate}
-            \item AWS Budgets
-        \end{enumerate}
+        Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud include:
         
         \subsection{AWS Budgets}
 
@@ -258,11 +259,39 @@
             \item Utilisation of selected services
             \item Utilisation or coverage of reserved instances
         \end{enumerate}
+	\begin{flushright}
+		\cite{AWSDocs}
+		% https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html
+	\end{flushright}
 
-        % TODO: Remove that?
-        % Stax.io
-        % AWS Cost Explorer and Management
-        % https://aws.amazon.com/aws-cost-management/reserved-instance-reporting/
+        \subsection{AWS Cost Explorer and AWS Cost Management}
+
+	AWS Cost Explorer enables access to all budget data. User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
+	% https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
+	AWS Cost Explorer is also a basis for AWS Cost Management, which is basically a set of predefined reports that form an easily accessible dashboard.
+	% https://aws.amazon.com/aws-cost-management/
+
+	\subsection{Cloudability}
+
+	Atlassian's Cloudability delivers a budget system functionality analogous to AWS Budgets
+	along with tools for predicting future spendings and <STH ELSE TODO>. In comparison to Amazon's
+	native tools Cloudability also allows multiaccount management, saving effort of having to set up budgets separately in every owned account.
+	% TODO source https://blog.cloudability.com/budget-alerts-do-not-a-cost-management-tool-make/
+
+	\subsection{Stax.io}
+
+	TODO
+
+	\subsection{Apptio}
+
+	Apptio provides a set of tools for both analysis of expenses and planning future ones. It
+	is also possible to organize resources into groups to make reports even clearer.
+
+	\subsection{SnowSoftware}
+
+	TODO
+
+% TODO change tabulation to spaces
 
     
 \begin{thebibliography}{99}
@@ -292,8 +321,8 @@
     \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
     \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}
 
-    \bibitem[Aptio]{Aptio}
-    \textit{https://www.apptio.com/}
+    \bibitem[Apptio]{Apptio}
+    \textit{https://www.apptio.com/products}
 
     \bibitem[SnowSoftware]{SnowSoftware}
     \textit{https://go.snowsoftware.com/}
