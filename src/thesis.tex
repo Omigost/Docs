@@ -73,7 +73,6 @@
 % Doctrine of classification as it states the Socrates-Erasmus:
 \dziedzina{  
 11.3 Informatics, Computer Science\\
-% TODO the above in English
 }
 
 % TODO
@@ -81,7 +80,7 @@
 \klasyfikacja{D. Software}
 
 % Keywords list
-\keywords{cloud computing, Amazon Web Services, cost optimization, cost management}
+\keywords{cloud computing, Amazon Web Services, cost optimization, cost management, machine termination}
 % TODO precise keywords
 
 % TODO
@@ -139,7 +138,7 @@
         \subsection{What is cloud computing}
 
         Cloud computing became one of the most important paradigm shifts in the area of real world software engineering.
-        It has reshaped the whole process of how applications are developed, deployed, and reduced the amount of upfront
+        It has reshaped the whole process of how applications are developed and deployed, and reduced the amount of upfront
         investment required to start an internet business. While commercial cloud computing services were first offered
         in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT,
         GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud
@@ -181,6 +180,7 @@
             \item Software as a service(SAAS).
         \end{enumerate}
 
+        % TODO discuss double dash vs triple dash
         \subsection{IAAS -- Infrastructure as a service}
 
         In such form of service, the provider allocates an instance of virtual machine for the client 
@@ -227,13 +227,12 @@
         We observed that there exists no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
         Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
 
-        As there exist an obvious gap in the market, our software solution - Omigost, tries to provide these unique features to the client:
-        % TODO zapytac o usage slowa Omigost tutaj
+        As there exist an obvious gap in the market, our software solution - Omigost - tries to provide these unique features to the client:
 
         \begin{enumerate}
-            \item Easy cloud management without expensive licenses or complex knowledge
-            \item Ability to provide intuitive interface for individual workers to request resources
-            \item Painless integration with existing business flows
+            \item Easy cloud management without expensive licenses or complex knowledge.
+            \item Ability to provide intuitive interface for individual workers to request resources.
+            \item Painless integration with existing business flows.
         \end{enumerate}
 
     \section{Overview of exisiting solutions}
@@ -247,7 +246,7 @@ these needs by creating custom software fitting certain roles in optimising AWS 
         \begin{enumerate}
 		\item configuring budget limits and alerting users when it is exceeded,
 		\item instance alerting management,
-		\item cost analytics
+		\item cost analytics.
 % TODO elaborate
         \end{enumerate}
 
@@ -300,49 +299,48 @@ these needs by creating custom software fitting certain roles in optimising AWS 
 % TODO change tabulation to spaces
 
     
-% TODO apply suggestions about the bibliography
 \begin{thebibliography}{99}
     \addcontentsline{toc}{chapter}{Bibliography}
 
     \bibitem[Apptio]{Apptio}
     % TODO add description
-    \textit{https://www.apptio.com/products}
+    \textit{https://www.apptio.com/products}.
 
     \bibitem[Armbrust]{Armbrust}
     2009 M. Armbrust, A. Fox, R. Griffith, A. D. Joseph, R. H. Katz et al.
     \textit{Above the Clouds: A Berkeley View of Cloud Computing.} 
     Technical Report No. UCB/EECS-2009-28.
-    \textit{http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.html}
+    \textit{http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.html}.
 
     \bibitem[AWSCostManagement]{AWSCostManagement}
     % TODO add description
-    \textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html}
+    \textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html}.
 
     \bibitem[AWSDocs]{AWSDocs}
     Amazon,
     % TODO where is available
-    \textit{Amazon AWS documentation.} 
+    \textit{Amazon AWS documentation}. 
 
     \bibitem[Cloudability]{Cloudability}
     % TODO add description
-    \textit{https://www.cloudability.com/product/transform/}
+    \textit{https://www.cloudability.com/product/transform/}.
 
     \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
     % TODO add description
-    \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}
+    \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}.
         
     \bibitem[Laatikainen]{Laatikainen}
     2013 G. Laatikainen, A. Ojala, O. Mazhelis
-    \textit{Cloud Services Pricing Models}
+    \textit{Cloud Services Pricing Models}.
 
     \bibitem[Markus]{Markus}
     2011 M. Böhm, S. Leimeisier, C. Riedl, H. Krcmar
     \textit{Cloud Computing and Computing Evolution}
-    Technische Universität München (TUM), Germany
+    Technische Universität München (TUM), Germany.
 
     \bibitem[SnowSoftware]{SnowSoftware}
     % TODO add description
-    \textit{https://go.snowsoftware.com/}
+    \textit{https://go.snowsoftware.com/}.
 
 \end{thebibliography}
 
