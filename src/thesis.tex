@@ -53,8 +53,9 @@
 \autorii{Michał Ołtarzewski}{382783}
 \autoriii{Gor Safaryan}{381501}
 
-\title{AWS Cost Optimization Tool - Omigost}
-\titlepl{Narzędzie Optymalizacji Kosztów AWS Omigost}
+\title{Omigost - AWS Cost Optimization Tool}
+\titlepl{Omigost - Narzędzie Optymalizacji Kosztów AWS}
+% TODO imo nie "dla AWS" bo chodzi o koszty chmury, a nie narzedzie dla chmury - do obgadania
 
 %\tytulang{Implementation of services for reliable AWS services cost tracking, budget management and heuristic optimalizations}
 
@@ -71,7 +72,7 @@
 
 % Doctrine of classification as it states the Socrates-Erasmus:
 \dziedzina{  
-11.3 Informatyka\\
+11.3 Informatics, Computer Science\\
 }
 
 % TODO
@@ -79,7 +80,8 @@
 \klasyfikacja{D. Software}
 
 % Keywords list
-\keywords{system, aws, cost, optimization, heuristic, cost management, koszt, aws, optymalizacja, heurystyka kosztowa}
+\keywords{cloud computing, Amazon Web Services, cost optimization, cost management, machine termination}
+% TODO precise keywords
 
 % TODO
 % Place for custom definitions and environments
@@ -103,7 +105,7 @@
     \item Introduction
         \begin{enumerate}
             \item [1.1] Overview
-            \item [1.2] Structure of thesis 
+            \item [1.2] Structure of the thesis 
         \end{enumerate}
     \item Problem statement
         \begin{enumerate}
@@ -113,7 +115,7 @@
         \end{enumerate}
     \item Tool for AWS cost optimisation
         \begin{enumerate}
-            \item [3.1] Technologies stack
+            \item [3.1] Technology stack
             \item [3.2] Overall Architecture
             \item [3.3] Data models
             \item [3.4] Views and design
@@ -125,6 +127,8 @@
     \item [A] Deployment and integration guide
 \end{enumerate}
 
+% TODO ta dluga uwaga na czwartej, pustej stronie z uwagami
+
 \chapter{Introduction}
 
     % \includegraphics[width=\textwidth*\real{0.4}]{imgs/logo.png}
@@ -134,19 +138,19 @@
         \subsection{What is cloud computing}
 
         Cloud computing became one of the most important paradigm shifts in the area of real world software engineering.
-        It has reshaped the whole process of how applications are developed, deployed and reduced the amount of upfront
+        It has reshaped the whole process of how applications are developed and deployed, and reduced the amount of upfront
         investment required to start an internet business. While commercial cloud computing services were first offered
         in 2006 by Amazon Inc, the original idea and preliminary implementation traces back to Multics OS developed by MIT,
         GE and Bell Labs. However the idea of time-sharing systems that was the ancestor of further cloud
-        concept was widespread in 60ies~\cite{BMarkus}.
+        concept was widespread in 60ies~\cite{Markus}.
 
         \subsection{The term itself}
 
         The term “Cloud computing” can refer to every layer of application stack:
         hardware, hosting platform, software and even to a single function.
-        Cloud Computing refers to both the applications delivered as services over the Internet and
+        Cloud computing refers to both the applications delivered as services over the Internet and
         the hardware and systems software in the data centers that provide those services.
-        The services themselves have long been referred to as Software as a Service (SaaS)~\cite{MArmbrust}.
+        The services themselves have long been referred to as Software as a Service (SaaS)~\cite{Armbrust}.
         Namely, it is a shared pool of computer resources such as computing capacity,
         transient and persistent memory, which can be acquired or released on demand.
         The undisputed power of cloud computing constitutes in its elasticity and granularity:
@@ -154,7 +158,7 @@
         are shipped during several minutes.
         Such services are usually offered over remote network connection and users are billed
         for the portion of the resources they have used.
-        Depending on the cloud infrastructure type the payment models can be different~\cite{GLaatikainen},
+        Depending on the cloud infrastructure type the payment models can be different~\cite{Laatikainen},
         but the common spendings are associated with data storage, data transfer, and computing timeshare.
 
         \subsection{Cloud resources}
@@ -171,12 +175,13 @@
         Depending on the service offered by the provider we differentiate 3 main models of cloud computing:
 
         \begin{enumerate}
-            \item Infrastructure as a service (IAAS)
-            \item Platform as a service (PAAS)
-            \item Software as a service(SAAS)
+            \item Infrastructure as a service (IAAS).
+            \item Platform as a service (PAAS).
+            \item Software as a service(SAAS).
         \end{enumerate}
 
-        \subsection{IAAS - Infrastructure as a service}
+        % TODO discuss double dash vs triple dash
+        \subsection{IAAS -- Infrastructure as a service}
 
         In such form of service, the provider allocates an instance of virtual machine for the client 
         and ensures that minimal building blocks for the IT infrastructure are present:
@@ -186,7 +191,7 @@
         through which user has full control over the allocated virtual machine. Some of the well known
         services are Amazon EC2, Google Compute Engine, Microsoft Azure IAAS.
 
-        \subsection{PAAS - Platform as a service}
+        \subsection{PAAS -- Platform as a service}
 
         Platform as a service alleviates the need for the developers to manage the operating system and
         provides programming language specific execution environment as well as the underlying structure
@@ -195,7 +200,7 @@
         OS security patches etc, they also lose full control over the virtual machine instances. AWS Elastic Beanstalk, Heroku
         and Google App Engine are some of the most popular PAAS services.
 
-        \subsection{SAAS - Software as a service}
+        \subsection{SAAS -- Software as a service}
 
         This form of service takes control of every layer of application and the user has nothing to do with
         the underlying infrastructure. This is by all means one of the most popular form of cloud computing as
@@ -213,39 +218,39 @@
         Many of bussiness are utilizing dedicated teams for cost management or use specialized tools i.e.
         Cloudability~\cite{Cloudability}, Apptio~\cite{Apptio}, Snow Software~\cite{SnowSoftware} and many more.
 
-        The tooling that exists is targetting wideworld-scale comapnies that are able to require expensive licenses and hire cost-optimization teams.
+        The tooling that exists is targetting wideworld-scale companies that are able to require expensive licenses and hire cost-optimization teams.
         The software as it is in case of Cloudability is complex for average user and do not provide easy way to incorporate custom business flows into the tool.
         Amazon as one on the leading cloud providers offers tools for exploration of expenses including public APIs~\cite{AWSCostManagement},
-        but the tools are rather simple and does not satisfy all the needs of potential clients.
+        but the tools are rather simple and do not satisfy all the needs of potential clients.
 
-        The common case that is unresolved is the distribution of RnD and development resources.
-        We observed there exist no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
+        The common case that is unresolved is the distribution of research and development resources.
+        We observed that there exists no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
         Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
 
-        As there exist an obvious gap in the market, Omigost tries to provide these unique features to the client:
+        As there exist an obvious gap in the market, our software solution - Omigost - tries to provide these unique features to the client:
 
         \begin{enumerate}
-            \item Easy cloud management without expensive licenses or complex knowledge
-            \item Ability to provide intuitive interface for individual workers to request resources
-            \item Painless integration with existing business flows
+            \item Easy cloud management without expensive licenses or complex knowledge.
+            \item Ability to provide intuitive interface for individual workers to request resources.
+            \item Painless integration with existing business flows.
         \end{enumerate}
 
     \section{Overview of exisiting solutions}
     
         Businesses that choose to rely upon cloud services often reach a point where resources
 	they’re using up gradually become less and less manageable. As the problem is well known
-	to the cloud market, both Amazon and other third-party companiesmade attempts to fulfill
+	to the cloud market, both Amazon and other third-party companies made attempts to fulfill
 	% TODO add some source
 these needs by creating custom software fitting certain roles in optimising AWS expenses that include:        
 
         \begin{enumerate}
 		\item configuring budget limits and alerting users when it is exceeded,
 		\item instance alerting management,
-		\item cost analytics
+		\item cost analytics.
 % TODO elaborate
         \end{enumerate}
 
-        Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud include:
+        Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud are described in the following sections.
         
         \subsection{AWS Budgets}
 
@@ -255,9 +260,9 @@ these needs by creating custom software fitting certain roles in optimising AWS 
         the administrator of that account is notified by email. Types of resources one can put this kind of a budget on include:
         
         \begin{enumerate}
-            \item Money spent in total or on a certain type of machines
-            \item Utilisation of selected services
-            \item Utilisation or coverage of reserved instances
+            \item Money spent in total or on a certain type of machines.
+            \item Utilisation of selected services.
+            \item Utilisation or coverage of reserved instances.
         \end{enumerate}
 	\begin{flushright}
 		\cite{AWSDocs}
@@ -297,38 +302,45 @@ these needs by creating custom software fitting certain roles in optimising AWS 
 \begin{thebibliography}{99}
     \addcontentsline{toc}{chapter}{Bibliography}
 
-    \bibitem[MArmbrust]{MArmbrust}
-    Michael Armbrust Armando Fox Rean Griffith Anthony D. Joseph Randy H. Katz et al.
-    \textit{Above the Clouds: A Berkeley View of Cloud Computing} 
-    Technical Report No. UCB/EECS-2009-28
-
-    \bibitem[AWSDocs]{AWSDocs}
-    Amazon
-    \textit{Amazon AWS documentation} 
-        
-    \bibitem[GLaatikainen]{GLaatikainen}
-    Laatikainen, G., Ojala, A., Mazhelis, O. (2013)
-    \textit{Cloud Services Pricing Models}
-
-    \bibitem[BMarkus]{BMarkus}
-    MARKUS BÖHM, STEFANIE LEIMEISTER, CHRISTOPH RIEDL, HELMUT KRCMAR
-    \textit{Cloud Computing and Computing Evolution}
-    Technische Universität München (TUM), Germany
-
-    \bibitem[Cloudability]{Cloudability}
-    \textit{https://www.cloudability.com/product/transform/}
-
-    \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
-    \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}
-
     \bibitem[Apptio]{Apptio}
-    \textit{https://www.apptio.com/products}
+    % TODO add description
+    \textit{https://www.apptio.com/products}.
 
-    \bibitem[SnowSoftware]{SnowSoftware}
-    \textit{https://go.snowsoftware.com/}
+    \bibitem[Armbrust]{Armbrust}
+    2009 M. Armbrust, A. Fox, R. Griffith, A. D. Joseph, R. H. Katz et al.
+    \textit{Above the Clouds: A Berkeley View of Cloud Computing.} 
+    Technical Report No. UCB/EECS-2009-28.
+    \textit{http://www.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.html}.
 
     \bibitem[AWSCostManagement]{AWSCostManagement}
-    \textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html}
+    % TODO add description
+    \textit{https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html/}.
+
+    \bibitem[AWSDocs]{AWSDocs}
+    Amazon,
+    % TODO where is available
+    \textit{Amazon AWS documentation}. 
+
+    \bibitem[Cloudability]{Cloudability}
+    % TODO add description
+    \textit{https://www.cloudability.com/product/transform/}.
+
+    \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
+    % TODO add description
+    \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}.
+        
+    \bibitem[Laatikainen]{Laatikainen}
+    2013 G. Laatikainen, A. Ojala, O. Mazhelis
+    \textit{Cloud Services Pricing Models}.
+
+    \bibitem[Markus]{Markus}
+    2011 M. Böhm, S. Leimeisier, C. Riedl, H. Krcmar
+    \textit{Cloud Computing and Computing Evolution}
+    Technische Universität München (TUM), Germany.
+
+    \bibitem[SnowSoftware]{SnowSoftware}
+    % TODO add description
+    \textit{https://go.snowsoftware.com/}.
 
 \end{thebibliography}
 
