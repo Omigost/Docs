@@ -274,16 +274,14 @@ Instytut Informatyki\\
     \section{Overview of exisiting solutions}
 
     Businesses that choose to rely upon cloud services often reach a point where resources
-    they’re using up gradually become less and less manageable. As the problem is well known
-    to the cloud market, both Amazon and other third-party companies made attempts to fulfill
-    % TODO add some source
-    these needs by creating custom software fitting certain roles in optimizing AWS expenses that include:
+    they're using up gradually become less and less manageable.
+    As the problem is well known to the cloud market, both Amazon and other third-party companies made attempts
+    to fulfill these needs by creating custom software fitting certain roles in optimizing AWS expenses that include:
 
     \begin{enumerate}
-        \item Configuring budget limits and alerting users when it is exceeded
+        \item Configuring budget limits and alerting users when they are exceeded
         \item Instance alerting management
         \item Cost analytics
-        % TODO elaborate
     \end{enumerate}
 
     Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud are described in the following sections. Every description is supposed to show there is still room for a new tool improving cost optimization possibilities.
@@ -291,9 +289,10 @@ Instytut Informatyki\\
     \subsection{AWS Budgets}
 
     AWS Budgets is a part of Amazon Web Services that allows to set limits of a certain types
-    that apply to a chosen period of time. When a limit is either exceeded,
-    close to be exceeded or is forecasted to exceed the configured threshold before the end of that period,
-    the administrator of that account is notified by email. Types of resources one can put this kind of a budget on include:
+    that apply to a chosen period of time.
+    When a limit is either exceeded, close to be exceeded or is forecasted to exceed the configured threshold
+    before the end of that period, the administrator of that account is notified by email.
+    Types of resources one can put this kind of a budget on include:
 
     \begin{enumerate}
         \item Money spent in total or on a certain type of machines.
@@ -307,7 +306,8 @@ Instytut Informatyki\\
 
     \subsection{AWS Cost Explorer and AWS Cost Management}
 
-    AWS Cost Explorer enables access to all budget data. User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
+    AWS Cost Explorer enables access to all budget data.
+    User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
     % https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
     AWS Cost Explorer is also a basis for AWS Cost Management, which is basically a set of predefined reports that form an easily accessible dashboard.
     % https://aws.amazon.com/aws-cost-management/
@@ -317,7 +317,10 @@ Instytut Informatyki\\
     Atlassian's Cloudability delivers a budget system functionality analogous to AWS Budgets
     along with tools for predicting future spendings and <STH ELSE TODO>. In comparison to Amazon's
     native tools Cloudability also allows multiaccount management, saving effort of having to set up budgets separately in every owned account.
-    % TODO source https://blog.cloudability.com/budget-alerts-do-not-a-cost-management-tool-make/
+
+    \begin{flushright}
+        \cite{Cloudability}
+    \end{flushright}
 
     \subsection{Stax.io}
 
@@ -325,8 +328,8 @@ Instytut Informatyki\\
 
     \subsection{Apptio}
 
-    Apptio provides a set of tools for both analysis of expenses and planning future ones. It
-    is also possible to organize resources into groups to make reports even clearer.
+    Apptio provides a set of tools for both analysis of expenses and planning future ones.
+    It is also possible to organize resources into groups to make reports even clearer.
 
     \subsection{SnowSoftware}
 
@@ -359,7 +362,7 @@ Instytut Informatyki\\
 
         \bibitem[Cloudability]{Cloudability}
         % TODO add description
-        \textit{https://www.cloudability.com/product/transform/}.
+        \textit{https://www.cloudability.com/product/plan/}.
 
         \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
         % TODO add description
