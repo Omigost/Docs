@@ -160,7 +160,7 @@ Instytut Informatyki\\
 
     \section{Aim of the thesis}
 
-    The primary objective of the thesis is to review exisiting tools used in cloud cost optimization and create our own new solution. We are focusing on Amazon Web Services platform maintained by Amazon as it is one of the most commonly used.
+    The primary objective of the thesis is to create a tool complementing existing solutions used in cloud cost optimisation. We are focusing on Amazon Web Services platform maintained by Amazon as it is one of the most commonly used.
     In our tool called \textit{Omigost} we will try to target small/middle sized companies creating simple and easy to use software with flexible configuration options.
 
     \section{Structure of the thesis}
@@ -274,16 +274,14 @@ Instytut Informatyki\\
     \section{Overview of exisiting solutions}
 
     Businesses that choose to rely upon cloud services often reach a point where resources
-    they’re using up gradually become less and less manageable. As the problem is well known
-    to the cloud market, both Amazon and other third-party companies made attempts to fulfill
-    % TODO add some source
-    these needs by creating custom software fitting certain roles in optimizing AWS expenses that include:
+    they're using up gradually become less and less manageable.
+    As the problem is well known to the cloud market, both Amazon and other third-party companies made attempts
+    to fulfill these needs by creating custom software fitting certain roles in optimizing AWS expenses that include:
 
     \begin{enumerate}
-        \item Configuring budget limits and alerting users when it is exceeded
+        \item Configuring budget limits and alerting users when they are exceeded
         \item Instance alerting management
         \item Cost analytics
-        % TODO elaborate
     \end{enumerate}
 
     Some of the most prominent tools currently available on the market that improve resource management experience for AWS cloud are described in the following sections. Every description is supposed to show there is still room for a new tool improving cost optimization possibilities.
@@ -291,9 +289,10 @@ Instytut Informatyki\\
     \subsection{AWS Budgets}
 
     AWS Budgets is a part of Amazon Web Services that allows to set limits of a certain types
-    that apply to a chosen period of time. When a limit is either exceeded,
-    close to be exceeded or is forecasted to exceed the configured threshold before the end of that period,
-    the administrator of that account is notified by email. Types of resources one can put this kind of a budget on include:
+    that apply to a chosen period of time.
+    When a limit is either exceeded, close to be exceeded or is forecasted to exceed the configured threshold
+    before the end of that period, the administrator of that account is notified by email.
+    Types of resources one can put this kind of a budget on include:
 
     \begin{enumerate}
         \item Money spent in total or on a certain type of machines.
@@ -307,7 +306,8 @@ Instytut Informatyki\\
 
     \subsection{AWS Cost Explorer and AWS Cost Management}
 
-    AWS Cost Explorer enables access to all budget data. User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
+    AWS Cost Explorer enables access to all budget data.
+    User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
     % https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
     AWS Cost Explorer is also a basis for AWS Cost Management, which is basically a set of predefined reports that form an easily accessible dashboard.
     % https://aws.amazon.com/aws-cost-management/
@@ -315,25 +315,67 @@ Instytut Informatyki\\
     \subsection{Cloudability}
 
     Atlassian's Cloudability delivers a budget system functionality analogous to AWS Budgets
-    along with tools for predicting future spendings and <STH ELSE TODO>. In comparison to Amazon's
-    native tools Cloudability also allows multiaccount management, saving effort of having to set up budgets separately in every owned account.
-    % TODO source https://blog.cloudability.com/budget-alerts-do-not-a-cost-management-tool-make/
+    along with tools for predicting future spendings and presenting the real cost of AWS resources in utilisation.
+    In comparison to Amazon's native tools Cloudability also allows multiaccount management,
+    saving effort of having to set up budgets separately in every owned account.
 
-    \subsection{Stax.io}
-
-    TODO
+    \begin{flushright}
+        \cite{Cloudability}
+    \end{flushright}
 
     \subsection{Apptio}
 
-    Apptio provides a set of tools for both analysis of expenses and planning future ones. It
-    is also possible to organize resources into groups to make reports even clearer.
+    Apptio provides a set of tools that mainly focuses on analysis of expenses and their forecasts,
+    managing them collaboratively, and planning future ones.
+    They expose features that make it easier to discover underutilized resource,
+    compare spendings with a database of similar benchmarks,
+    organize resources into groups to make reports even clearer,
+    and offer other useful management utilities.
+
+    \begin{flushright}
+        \cite{Apptio}
+    \end{flushright}
+
+    \subsection{Stax.io}
+
+    Stax.io's main focus is to provide insight about cost, wastage, compliance and cloud quality.
+    It can analyse how cloud resources are used, measure quality of the way cloud is utilized,
+    set up checks for business-compliance of our cloud with several standards
+    and give customized advice on what could be optimized to reduce wastage,
+    while also allowing for creation of custom views of data.
+    Basic tools for budgeting instances, accounts, tags and more, monthly or annually,
+    and configuring overspend alerts are also available there.
+
+    \begin{flushright}
+        \cite{Stax.io}
+    \end{flushright}
 
     \subsection{SnowSoftware}
 
-    TODO
+    SnowSoftware's toolset, alongside fulfilling some of the more specific usecases
+    like optimizing usage of software from SAP Software Solutions or optimizing and managing software licenses,
+    also has tools that are dedicated to optimizing cloud costs.
 
-    % TODO change tabulation to spaces
+    Snow for SaaS attempts to give a holistic view about application usage including, among others,
+    how SaaS applications are used on cloud and whether there are zombie virtual machines~\cite{SnowSaaS}.
 
+    Approach suggested in Snow Automation Platform based on automated, preconfigured provision of resources.
+    By pre-giving those resources a decommission date one can avoid issue of zombie instances.
+    It is also possible to preconfigure budgets and schedule machine starts and stops to further optimize costs~\cite{SnowBlog}.
+
+    \subsection{Conclusions}
+
+    Using resources available to us, we concluded that most of the competing tools available on the market
+    fail to provide both instance budgeting and machine termination automation.
+    A number of them also puts most of their emphasis on analysing usage data rather than
+    helping with instance management.
+    From tools listed above, Snow Automation Platform is the only one that features both budgeting and automating
+    machine termination and stopping.
+    However, it's approach is not to straightforwardly manage already existing machines,
+    but rather automate their provisioning.
+
+
+    % TODO Begin chapter 3 with showing our product and then comparing with the conclusions above
 
     \begin{thebibliography}{99}
         \addcontentsline{toc}{chapter}{Bibliography}
@@ -359,7 +401,7 @@ Instytut Informatyki\\
 
         \bibitem[Cloudability]{Cloudability}
         % TODO add description
-        \textit{https://www.cloudability.com/product/transform/}.
+        \textit{https://www.cloudability.com/product/plan/}.
 
         \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
         % TODO add description
@@ -374,9 +416,18 @@ Instytut Informatyki\\
         \textit{Cloud Computing and Computing Evolution}
         Technische Universität München (TUM), Germany.
 
-        \bibitem[SnowSoftware]{SnowSoftware}
+        \bibitem[SnowBlog]{SnowBlog}
         % TODO add description
-        \textit{https://go.snowsoftware.com/}.
+        \textit{https://www.snowsoftware.com/es/blog/2018/06/16/true-cost-aws}.
+
+        \bibitem[SnowSaaS]{SnowSaaS}
+        % TODO add description
+        \textit{https://www.snowsoftware.com/int/snow-saas}.
+
+        \bibitem[Stax.io]{Stax.io}
+        % TODO add description
+        \textit{https://www.getapp.com/it-management-software/a/stax/}.
+        \textit{https://www.stax.io/features}.
 
     \end{thebibliography}
 
