@@ -274,6 +274,7 @@ Instytut Informatyki\\
         \item Easy cloud management without complex knowledge
         \item Intuitive interface for individual workers to request resources
         \item Notifications for cost surpassing and redundant resources
+        \item manage notification well -- no noisy or overload of alerts
         \item Highly configurable and flexible
         \item Integration with communication via Email and Slack
     \end{itemize}
@@ -422,6 +423,32 @@ Instytut Informatyki\\
     In this chapter we will describe the whole application -- \textit{Omigost}.
 
     \section{Technology stack}
+
+    \subsection{Frontend}
+
+    TODO
+
+    \subsection{Backend}
+
+    Core of the backend is \textit{Java 8}. We have selected this programming language because most of us were familiar with it. Also this language has huge community and lots of useful in our case libraries and frameworks.
+
+    For creation of the whole backend service we have chosen Spring framework. It is currently one of the most common choice. Spring allows to build web applications imposing usage of design patterns like Model-View-Controller and Dependency Injection. It helps to keep code easily testable and well organized. Additionaly it provides various features out of the box, which speeds up development process.
+
+    Responsible for build and dependencies management is Gradle. It is easy to use with various IDEs and flexible configuration. The main competitor of Gradle is Maven so obviously we considered both. Gradle turned out to be better in terms of performance and usage convenience.
+
+    For data persistance we have picked PostgreSQL database. Relational database enforces having strictly defined data model with validation. Performance is not important aspect for us so there was not need for other types of databases. PostgreSQL is great open source database with strong data integrity and fault-tolerancy guaranties. Furthermore AWS lets set up PostgreSQL instance with just few clicks with automaticaly configured parameters for optimal performance.
+
+    In our application we use following libraries:
+    \begin{enumerate}
+        \item Spring Core, Spring Boot, Spring Data, Spring Web
+        \item Project Lombok
+        \item AWS SDKs
+    \end{enumerate}
+
+    \subsection{Deployment}
+
+    Whole tool is bundled up by Docker. Following straightforward instruction everyone is able to create their own Docker image of the application. Moreover all of the configuration is present in one file making it easy to adapt it your way. Preferable method of deployment is to use AWS Elastic Beanstalk with Docker image. In such a way AWS will be responsible for almost everything including capacity provisioning, load balancing and auto-scaling.
+
 
 
     \begin{thebibliography}{99}
