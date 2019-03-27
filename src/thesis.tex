@@ -432,6 +432,32 @@ Instytut Informatyki\\
       \caption{\label{fig:arch-diag} Draft diagram of the tool architecture}
     \end{figure}
 
+    The architecture we use can be described as a traditional client-server architecture.
+    Actors make requests over the HTTP protocol to our system with a web browser using our frontend client application
+    served by our server or, alternatively, from any kind of a storage service like, for example, Amazon's S3.
+    Those requests are then handled by a backend application of all requests is handled by a central server machine.
+    During the handling process our application utilizes both a local instance of a PostgreSQL relational database
+    and a connection with selected Amazon Web Services via a SDK library.
+    Additionally, end users are notified about budget or instance events related to their cloud activity through Slack.
+
+    \subsection{Role of AWS cloud services}
+    Connecting with Amazon's cloud services not only allows the application to access instance and spending data
+    that is crucial to be able to fulfill the business requirements,
+    but many of them also solve many of the problems we would otherwise have to solve ourselves - resulting
+    in time saved and a codebase that is more concise and easier to maintain.
+
+    Services that are used in the project and their respective roles in it are as follows:
+    \begin{itemize}
+        \item Identity and Access Management (IAM) -- provision of the main Amazon account ID that is used in other services
+        \item Organizations -- insight into structure of the Organization used by the company, including listing accounts
+        \item Budgets -- configurable spending watches that trigger a SNS notification whenever a budget limit is or is going to be exceeded
+        \item SNS -- alert notifications for backend that let it know about spendings events
+        \item Cost Explorer -- data for graph visualizing spendings in frontend
+        \item EC2/RDS -- information about state of instances running on the account
+    \end{itemize}
+
+    TODO at the end of the project - check if any other "sublibraries" were used and/or if any other usecases emerged
+
     \section{Technology stack}
 
     \subsection{Frontend}
