@@ -110,7 +110,7 @@ Instytut Informatyki\\
             \item [2.2] Overview of exisiting solutions
             \item [2.3] Our solution
         \end{enumerate}
-        \item Development
+        \item Project development
         \begin{enumerate}
             \item [3.1] Version control
             \item [3.2] Continuous integration
@@ -151,8 +151,7 @@ Instytut Informatyki\\
     The services themselves have long been referred to as Software as a Service (SaaS)~\cite{Armbrust}.
     Generally speaking cloud can be perceived as a shared pool of computer resources such as computing capacity,
     transient and persistent memory, which can be acquired or released on demand.
-    The undisputed power of cloud computing constitutes in its elasticity and granularity:
-    i.e. it allows users to ask for hundreds of computers for only 5 minute usage which
+    The undisputed power of cloud computing constitutes in its elasticity and granularity: it allows users to ask for hundreds of computers for only 5 minute usage which
     are shipped during several minutes.
     Such services are usually offered over remote network connection and users are billed
     for the portion of the resources they have used.
@@ -161,18 +160,18 @@ Instytut Informatyki\\
 
     Nowadays the industry increasingly relies on cloud technologies. More and more companies start or move their products to cloud environment.
     Unfortunately it comes with additional financial costs imposed by cloud providers.
-    In order to make business profitable companies try to reduce amont of money they are supposed to pay to the minimum. Despite different solutions like employing specific "cloud cost optimization" team, more and more firms decide to benefit from dedicated software, which is supposed to help manage and optimize their cloud usage. Amount of such tools do not make it easy to chose the right one.
+    In order to make business profitable companies try to reduce amont of money they are supposed to pay to the minimum. Despite different solutions, like employing specific cloud cost optimization team, more and more firms decide to benefit from dedicated software, which is supposed to help manage and optimize their cloud usage. It is not easy to chose the right tool having that many choices.
 
     There are some notable solutions of AWS cloud optimization problem -- \textit{AWS Cost Explorer} and \textit{AWS Cost Management}, \textit{Cloudability}, \textit{Apptio} and others widely used nowadays. In spite of that fact there is still place for new tools targeting omitted types of clients or wrapping and bundling the greatest features from exisiting ones.
 
     \section{Aim of the thesis}
 
-    The primary objective of the thesis is to create a tool complementing existing solutions used in cloud cost optimisation. We are focusing on Amazon Web Services platform maintained by Amazon as it is one of the most commonly used.
-    In our tool called \textit{Omigost} we will try to target small/middle sized companies creating simple and easy to use software with flexible configuration options.
+    The primary objective of the thesis is to create a tool complementing existing solutions used in cloud cost optimisation. We focuse on Amazon Web Services platform maintained by Amazon as it is one of the most commonly used.
+    In our tool, called \textit{Omigost}, we will try to target small/middle sized companies creating simple and easy to use software with flexible configuration options.
 
     \section{Structure of the thesis}
 
-    The thesis is structured as follows. In Chapter 2 we describe the problem of cloud cost optimization with additional description of selected existing solutions. Then, in Chapter 3 we present in detail our solution in detail. We mention among others: whole system architecture, API and configuration. Finally, in the Chapter 4 we sum up the whole thesis. Additionally in Appendix A we describe how to introduce our solution in a company.
+    The thesis is structured as follows. In Chapter 2 we describe the problem of cloud cost optimization with additional description of selected existing solutions. Then, in Chapter 3 we present our solution in detail. We mention, among others, whole system architecture, API and configuration. Finally, in Chapter 4 we sum up the whole thesis. In Appendix A we describe how to introduce our solution in a company.
 
     \section{Contribution of each author}
 
@@ -254,27 +253,27 @@ Instytut Informatyki\\
 
     \section{Motivation}
 
-    As there are plenty of various billing models for cloud services~\cite{GLaatikainen}
+    As there are plenty of various billing models for cloud services~\cite{GLaatikainen},
     the effective management of them became a tough problem.
     The ease of resource allocation led to situation when tracking tiniest details of billings is an unaffordable challenge.
 
     The tooling that exists is targetting wideworld-scale companies that are able to require expensive licenses and hire cost-optimization teams.
     The software as it is in case of Cloudability is too complex for average user and does not provide easy way to incorporate custom business flows into the tool.
-    Amazon, as one of the leading cloud providers offers different tools for expenses exploration. Most commonly used options are either their public APIs~\cite{AWSCostManagement} or specific SDKs supporting lots of languages.
+    Amazon, as one of the leading cloud providers, offers different tools for exploration of expenses. Most commonly used options are either their public APIs~\cite{AWSCostManagement} or specific SDKs supporting lots of languages.
     Unfortuantely previously mentioned tools are rather simple and do not satisfy all the needs of potential clients.
 
     The common case that is unresolved is the distribution of research and development resources.
     We observed that there exists no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
     Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
 
-    There exists an obvious gap in the market, our solution -- \textit{Omigost} will try to cover. Having one versatile tool removes need for using few detached pieces of software. The most important aspects of our tool are intuitive interface and different types of user notifications, which highly increases spendings clarity and helps in decisions connected to costs cutting. We hope it will allow companies to focus more on providing value to their clients having lower costs in the same time.
-    Problem we would like to solve is lack of the tool that has simultaneously following features:
+    There exists an obvious gap in the market, that our solution, \textit{Omigost}, will try to cover. Having one versatile tool removes the need for using few detached pieces of software. The most important aspects of our tool are intuitive interface and different types of user notifications, which highly increases spendings clarity and helps in decisions connected to costs cutting. We hope it will allow companies to focus more on providing value to their clients having lower costs in the same time.
+    Problem we would like to solve is lack of the tool that has simultaneously the following features:
     \begin{itemize}
         \item Free and Open Source
         \item Easy cloud management without complex knowledge
         \item Intuitive interface for individual workers to request resources
         \item Notifications for cost surpassing and redundant resources
-        \item manage notification well -- no noisy or overload of alerts
+        \item Manage notification well -- only significant alerts
         \item Highly configurable and flexible
         \item Integration with communication via Email and Slack
     \end{itemize}
@@ -296,7 +295,7 @@ Instytut Informatyki\\
 
     \subsection{AWS Budgets}
 
-    AWS Budgets is a part of Amazon Web Services that allows to set limits of a certain types
+    AWS Budgets\cite{AWSDocs} is a part of Amazon Web Services that allows to set limits of a certain types
     that apply to a chosen period of time.
     When a limit is either exceeded, close to be exceeded or is forecasted to exceed the configured threshold
     before the end of that period, the administrator of that account is notified by email.
@@ -307,14 +306,10 @@ Instytut Informatyki\\
         \item Utilisation of selected services.
         \item Utilisation or coverage of reserved instances.
     \end{enumerate}
-    \begin{flushright}
-        \cite{AWSDocs}
-        % https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html
-    \end{flushright}
 
     \subsection{AWS Cost Explorer and AWS Cost Management}
 
-    AWS Cost Explorer enables access to all budget data.
+    AWS Cost Explorer\cite{CostExplorer} enables access to all budget data.
     User can define and generate custom reports in a form of a data chart spanning a selected time interval with chosen time granularity of the samples.
     % https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
     AWS Cost Explorer is also a basis for AWS Cost Management, which is basically a set of predefined reports that form an easily accessible dashboard.
@@ -322,40 +317,28 @@ Instytut Informatyki\\
 
     \subsection{Cloudability}
 
-    Atlassian's Cloudability delivers a budget system functionality analogous to AWS Budgets
+    Atlassian's Cloudability\cite{Cloudability} delivers a budget system functionality analogous to AWS Budgets
     along with tools for predicting future spendings and presenting the real cost of AWS resources in utilisation.
     In comparison to Amazon's native tools Cloudability also allows management of multiple accounts in the same time. It saves effort of having to set up budgets separately in every owned account.
 
-    \begin{flushright}
-        \cite{Cloudability}
-    \end{flushright}
-
     \subsection{Apptio}
 
-    Apptio provides a set of tools that mainly focuses on analysis of expenses and their forecasts,
+    Apptio\cite{Apptio} provides a set of tools that mainly focuses on analysis of expenses and their forecasts,
     managing them collaboratively, and planning future ones.
     They expose features that make it easier to discover underutilized resource,
     compare spendings with a database of similar benchmarks,
     organize resources into groups to make reports even clearer,
     and offer other useful management utilities.
 
-    \begin{flushright}
-        \cite{Apptio}
-    \end{flushright}
-
     \subsection{Stax.io}
 
-    Stax.io's main focus is to provide insight about cost, wastage, compliance and cloud quality.
+    Stax.io's\cite{Stax.io} main focus is to provide insight about cost, wastage, compliance and cloud quality.
     It can analyse how cloud resources are used, measure quality of the way cloud is utilized,
     set up checks for business-compliance of our cloud with several standards
     and give customized advice on what could be optimized to reduce wastage,
     while also allowing for creation of custom views of data.
     Basic tools for budgeting instances, accounts, tags and more, monthly or annually,
     and configuring overspend alerts are also available there.
-
-    \begin{flushright}
-        \cite{Stax.io}
-    \end{flushright}
 
     \subsection{SnowSoftware}
 
@@ -366,7 +349,7 @@ Instytut Informatyki\\
     Snow for SaaS attempts to give a holistic view about application usage including, among others,
     how SaaS applications are used on cloud and whether there are zombie virtual machines~\cite{SnowSaaS}.
 
-    Approach suggested in Snow Automation Platform based on automated, preconfigured provision of resources.
+    Snow Automation Platform suggests approach based on automated and preconfigured provision of resources.
     By pre-giving those resources a decommission date one can avoid issue of zombie instances.
     It is also possible to preconfigure budgets and schedule machine starts and stops to further optimize costs~\cite{SnowBlog}.
 
@@ -379,7 +362,7 @@ Instytut Informatyki\\
     From tools listed above, Snow Automation Platform is the only one that features both budgeting and automating
     machine termination and stopping.
     However, it's approach is not to straightforwardly manage already existing machines,
-    but rather automate their provisioning.
+    but rather to automate their provisioning.
 
     \section{Our Solution}
 
@@ -388,36 +371,40 @@ Instytut Informatyki\\
     % TODO Begin chapter 3 with showing our product and then comparing with the conclusions above
 
 
-    \chapter{Development}
+    \chapter{Project development}
 
-    In this section we will describe the way we developed the application -- workflow and supporting tools.
+    In this section we will describe the way we developed the application -- managament and organization of work along with supporting tools.
 
     TODO
 
     \section{Version control}
 
-    During development as our version control system we use git and whole code repository is hosted on GitHub. We have chosen this particular service because of a few reasons.
+    During development as our version control system we use Git and whole code repository is hosted on GitHub. We have chosen this particular service because of a few reasons.
 
-    First of all GitHub is one of the most popular git hosting service and also has one of the biggest open source communities. It is quite important if we consider possibility of future development of our tool even after finishing this thesis.
+    First of all GitHub\cite{GitHub} is one of the most popular Git hosting service and also has one of the biggest open source communities. It is quite important if we consider possibility of future development of our tool even after finishing this thesis.
 
-    The second reason is integration with lots of useful applications. It is easy to use it with different services improving development process like TravisCI and Slack.
+    The second reason is integration with lots of useful applications. It is easy to use it with different services improving development process like TravisCI\cite{TravisCI} and Slack\cite{Slack}.
 
-    Last but not least, GitHub has built in issue tracker. It can be highly customised and makes project management easier. We created dashboard divided into a few sections, which separate tasks in different stages of development. Everything is automated -- depending on actions performed by users like Pull Requests issues are moved between sections. Additionally there is introduced issues tagging system, which helps prioritize tasks.
+    Last but not least, GitHub has built in issue tracker. It can be highly customised and makes project management easier. We created dashboard divided into a few sections, which separate tasks in different stages of development. Everything is automated -- depending on actions performed by users like Pull Requests issues are moved between sections. In order to help prioritize tasks we introduced issues tagging system.
 
     \section{Continuous Integration}
 
-    For Continuous Integration we use hosted service -- TravisCI. It allows us to make sure new changes we introduce are working with the rest of our codebase. There are two reasons we have chosen this service: it is easy to configure using only one YAML file inside repository and for open source projects it is at no charge. After every code submission TravisCI performs at the beginning Smoke Tests trying to build project and check whether it runs or not. If it is successful ther will be run both backend and frontend test.
+    For Continuous Integration we use hosted service -- TravisCI. It allows us to make sure new changes we introduce are compliant with the rest of our codebase. There are two reasons we have chosen this service: it is easy to configure using only one YAML file inside repository and it is free for open source projects. After every code submission, at the beginning TravisCI performs Smoke Tests trying to build the project and check whether it runs or not. Successful build is followed by both backend and frontend tests.
 
     \section{Communication}
 
-    All of the communication happens via Slack. It is a platform allowing team members to communicate without use of email or group SMS. There can be created various channels with persistent messages history both public and private. There is also possibility to reach out to every member directly if needed. We use Slack due to the fact it is free and integrates easily with GitHub.
+    All of the communication happens via Slack. It is a platform allowing team members to communicate without use of email or group SMS. Various channels can be created there, with persistent messages history both public and private. There is also possibility to reach out to every member directly if needed. We use Slack due to the fact it is free and integrates easily with GitHub.
 
-    \section{Workflow}
+    \section{Organization of work}
 
-    We work in iterations that last around one month. At the beginning we define and establishing new issues. During the iteration everyone choses desirable task, completes it and makes corresponding Pull Request in GitHub. At the end we discuss our overall progress and plan next steps.
+    We work in iterations that last around one month. At the beginning we define and create new issues. During the iteration everyone chooses desirable task, completes it and makes corresponding Pull Request in GitHub. At the end we discuss our overall progress and plan next steps.
 
-    In order to let new feature become part of the repository it has to be accepted. It means Pull Request has to pass Continuous Integration system build and be approved by one of the reviewers.
-    Every issue is solved in separate branch and every PR is merged directly to master branch, which allows us to group all commits that are part of one feature or issue.
+    In order to let a new feature become part of the repository it has to be accepted. It means that Pull Request has to pass Continuous Integration system build and be approved by one of the reviewers.
+    Every issue is solved in a separate branch and every PR is merged directly to the master branch, which allows us to group all commits that are part of one feature or issue.
+
+    \section{Contact with client company -- Sumo Logic}
+
+    TODO (not sure if right title)
 
 
     \chapter{Tool for AWS cost optimization}
@@ -487,15 +474,15 @@ Instytut Informatyki\\
 
     \subsection{Backend}
 
-    Core of the backend is \textit{Java 8}. We have selected this programming language because most of us were familiar with it. Also this language has huge community and lots of useful in our case libraries and frameworks.
+    Core of the backend is \textit{Java 8}. We have selected this programming language because most of us were familiar with it. Also this language has huge community and lots of useful libraries and frameworks.
 
-    For creation of the whole backend service we have chosen Spring framework. It is currently one of the most common choice. Spring allows to build web applications imposing usage of design patterns like Model-View-Controller and Dependency Injection. It helps to keep code easily testable and well organized. Additionaly it provides various features out of the box, which speeds up development process.
+    For creation of the whole backend service we have chosen Spring\cite{Spring} framework. It is currently one of the most common choices. Spring allows to build web applications imposing usage of design patterns like Model-View-Controller and Dependency Injection. It helps to keep code easily testable and well organized. Additionaly it provides various features out of the box, which speeds up development process.
 
-    Responsible for build and dependencies management is Gradle. It is easy to use with various IDEs and flexible configuration. The main competitor of Gradle is Maven so obviously we considered both. Gradle turned out to be better in terms of performance and usage convenience.
+    Gradle\cite{Gradle} is responsible for build and dependencies management. It is easy to use with various IDEs and flexible configuration. The main competitor of Gradle is Maven so obviously we considered both. Gradle turned out to be better in terms of performance and usage convenience.
 
-    For data persistance we have picked PostgreSQL database. Relational database enforces having strictly defined data model with validation. Performance is not important aspect for us so there was not need for other types of databases. PostgreSQL is great open source database with strong data integrity and fault-tolerancy guaranties. Furthermore AWS lets set up PostgreSQL instance with just few clicks with automaticaly configured parameters for optimal performance.
+    For data persistance we have picked PostgreSQL database. Relational database enforces having strictly defined data model with validation. Performance is not an important aspect for us so there was no need for other types of databases. PostgreSQL is great open source database with strong data integrity and fault-tolerancy guaranties. Furthermore AWS lets set up PostgreSQL instance with just few clicks with automaticaly configured parameters for optimal performance.
 
-    In our application we use following libraries:
+    In our application we use the following libraries:
     \begin{enumerate}
         \item Spring Core, Spring Boot, Spring Data, Spring Web
         \item Project Lombok
@@ -548,6 +535,9 @@ Instytut Informatyki\\
         \bibitem[CloudabilityAlerts]{CloudabilityAlerts}
         % TODO add description
         \textit{https://blog.cloudability.com/creating-budget-alerts-by-tag-with-cloudability/}.
+
+        \bibitem[CostExplorer]{CostExplorer}
+        \textit{https://aws.amazon.com/aws-cost-management/aws-cost-explorer/}
 
         \bibitem[Docker]{Docker}
         \textit{https://www.docker.com/}.
