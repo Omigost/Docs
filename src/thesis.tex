@@ -458,6 +458,18 @@ Instytut Informatyki\\
 
     TODO at the end of the project - check if any other "sublibraries" were used and/or if any other usecases emerged
 
+    \subsection{Backend}
+
+    Backend is the main agent of our application's functionalities.
+    It is responsible for fetching or receiving data from either of other connected resources, parsing it and taking appropriate actions.
+    Some of its more important tasks include:
+    \begin{itemize}
+        \item receiving SNS budget alert notifications and notifying appropriate users via Slack,
+        \item fetching and providing raw data for the frontend so it can be displayed to the user,
+        \item receiving configuration or data modification requests and adjusting the application environment components to fulfill them,
+        \item checking machine state on preconfigured times and notifying users about possible instance optimizations.
+    \end{itemize}
+
     \section{Technology stack}
 
     \subsection{Frontend}
