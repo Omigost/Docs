@@ -448,25 +448,25 @@ Instytut Informatyki\\
     In this chapter we will describe the whole application -- \textit{Omigost}.
 
     \section{Overall architecture}
-    Our solution utilizes an architecture that can be briefly visualized with the following figure:
+    Our solution is based on an architecture that is visualized on Figure 4.1
 
     \begin{figure}[!htb]
       \center{\includegraphics[width=\textwidth] {imgs/arch_diagram.png}}
       \caption{\label{fig:arch-diag} Draft diagram of the tool architecture}
     \end{figure}
 
-    The architecture we use can be described as a traditional client-server architecture.
-    Actors make requests over the HTTP protocol to our system with a web browser using our frontend client application
-    served by our server or, alternatively, from any kind of a storage service like, for example, Amazon's S3.
-    Those requests are then handled by a backend application of all requests is handled by a central server machine.
-    During the handling process our application utilizes both a local instance of a PostgreSQL relational database
+    The architecture of our tool can be described as a traditional client-server architecture.
+    Actors make requests over the HTTP protocol to the system with a web browser using the frontend client application
+    served by the Omigost server or, alternatively, from any kind of a storage service like, for example, Amazon's S3.
+    Those requests are then handled by a backend application running on a central server machine.
+    During the handling process our application uses both a local instance of a PostgreSQL relational database
     and a connection with selected Amazon Web Services via a SDK library.
     Additionally, end users are notified about budget or instance events related to their cloud activity through Slack.
 
     \subsection{Role of AWS cloud services}
     Connecting with Amazon's cloud services not only allows the application to access instance and spending data
     that is crucial to be able to fulfill the business requirements,
-    but many of them also solve many of the problems we would otherwise have to solve ourselves - resulting
+    but many of them also solve many of the problems we would otherwise have to solve ourselves -- resulting
     in time saved and a codebase that is more concise and easier to maintain.
 
     Services that are used in the project and their respective roles in it are as follows:
@@ -479,7 +479,7 @@ Instytut Informatyki\\
         \item EC2/RDS -- information about state of instances running on the account.
     \end{itemize}
 
-    TODO at the end of the project - check if any other "sublibraries" were used and/or if any other usecases emerged
+    TODO at the end of the project -- check if any other "sublibraries" were used and/or if any other use cases emerged
 
     \subsection{Backend}
 
@@ -497,12 +497,12 @@ Instytut Informatyki\\
     \end{itemize}
 
     \subsection{Frontend}
-    Frontend is a web application that allows our user to see and alter the state of our application using a graphical user interface (GUI).
+    Frontend is a web application that allows the user to see and alter the state of the application using a graphical user interface (GUI).
     Its main roles are to:
     \begin{itemize}
         \item request and parse raw data from backend into visual representations of it,
         \item provide an interface for the user,
-        \item translate the interface clicks to appropriate backend requests and display the results of those requests.
+        \item translate the interface clicks to appropriate backend requests and display the results of these requests.
     \end{itemize}
 
     \section{Technology stack}
@@ -517,18 +517,18 @@ Instytut Informatyki\\
     We have selected this programming language because most of us were familiar with it.
     Also this language has huge community and lots of useful libraries and frameworks.
 
-    For creation of the whole backend service we have chosen Spring\cite{Spring} framework.
+    For creation of the whole backend service we have chosen Spring \cite{Spring} framework.
     It is currently one of the most common choices.
     Spring allows to build web applications imposing usage of design patterns like Model-View-Controller and Dependency Injection.
     It helps to keep code easily testable and well organized.
     Additionally it provides various features out of the box, which speeds up development process.
 
-    Gradle\cite{Gradle} is responsible for build and dependencies management.
-    It is easy to use with various IDEs and flexible configuration.
+    Gradle \cite{Gradle} is responsible for build and dependencies management.
+    It is easy to use with various IDEs and has flexible configuration.
     The main competitor of Gradle is Maven so obviously we considered both.
     Gradle turned out to be better in terms of performance and usage convenience.
 
-    For data persistence we have picked PostgreSQL database.
+    For data persistence we have chosen PostgreSQL database.
     Relational database enforces having strictly defined data model with validation.
     Performance is not an important aspect for us so there was no need for other types of databases.
     PostgreSQL is a great open source database with strong data integrity and fault-tolerance guaranties.
@@ -544,7 +544,7 @@ Instytut Informatyki\\
 
     \subsection{Deployment}
 
-    Whole tool is bundled up by Docker.
+    The whole tool is bundled up by Docker.
     Following a straightforward instruction everyone is able to create their own Docker image of the application.
     Moreover, all of the configuration is present in one file making it easy to adapt it your way.
     A preferable method of deployment is to use AWS Elastic Beanstalk with Docker image.
