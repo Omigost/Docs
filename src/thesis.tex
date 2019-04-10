@@ -394,8 +394,6 @@ Instytut Informatyki\\
 
     In this section we will describe the way we developed the application -- managament and organization of work along with supporting tools.
 
-    TODO
-
     \section{Version control}
 
     During development as our version control system we use Git and whole code repository is hosted on GitHub.
@@ -439,9 +437,17 @@ Instytut Informatyki\\
     It means that Pull Request has to pass Continuous Integration system build and be approved by one of the reviewers.
     Every issue is solved in a separate branch and every PR is merged directly to the master branch, which allows us to group all commits that are part of one feature or issue.
 
-    \section{Contact with client company -- Sumo Logic}
+    \section{Contact with the client company -- Sumo Logic}
 
-    TODO (not sure if right title)
+    Whole project and thesis are developed under Sumo Logic mentorship.
+    There is one particular person designated to act as mentor -- Jacek Migdał.
+    He makes sure we are provided with every resource we need to
+    work on the project without unnecessary breaks.
+    Also our mentor helps revolve any ambiguity and gives technical advice.
+
+    Day to day communication with mentor takes place via Slack.
+    Additionally approximately twice a month our team meets in Sumo Logic office to review current progress and overcome major difficulties.
+    Every new feature is discussed beforehand with the company.
 
     \chapter{Tool for AWS cost optimization}
 
@@ -547,6 +553,7 @@ Instytut Informatyki\\
     The whole tool is bundled up by Docker.
     Following a straightforward instruction everyone is able to create their own Docker image of the application.
     Moreover, all of the configuration is present in one file making it easy to adapt it your way.
+    
     A preferable method of deployment is to use AWS Elastic Beanstalk with Docker image.
     In such a way AWS will be responsible for almost everything including capacity provisioning, load balancing and auto-scaling.
 
