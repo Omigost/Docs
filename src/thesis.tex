@@ -453,6 +453,184 @@ Instytut Informatyki\\
 
     In this chapter we will describe the whole application -- \textit{Omigost}.
 
+    \section{Use cases}
+
+    In this section you can find descriptions of the most common use cases
+    grouped by actors. Every use case assumes company in preconfigured in
+    AWS Organizations.
+
+    \subsection{Actor -- AWS cost optimization admin}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Adding employee to the system as a new user \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for users management
+        \item Admin fills username and selects accounts available for specific employee
+        \item Admin submits adding new user using button
+        \end{enumerate}
+        \\
+      \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{12cm} |}
+      \hline
+      Use case & Removing existing user \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for users management
+        \item Admin finds specific user in the user list
+        \item Admin clicks button for user removal
+        \item Admin confirms his intent in modal that showed after previous action
+        \end{enumerate}
+        \\ \hline
+      Alternative flow & In point 4. Admin notices mistake and clicks cancel button in modal. After that Admin starts again from point 1. \\
+      \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Adding communication to existing user \\ \hline
+      Description & Adding new destination for user notifications \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for users management
+        \item Admin fills fields describing new mean of communication
+        \item Admin submits communication creation
+        \item Admin selects specific user from user list
+        \item Admin selects communication from the list and adds it to the user
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Setup of one budget \\ \hline
+      Description & Admin wants to create single budget for linked accounts/tags \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for budgets management
+        \item Admin enters budget value in dollars
+        \item Admin selects linked accounts/tags from lists connecting them to budget
+        \item Admin clicks submit button
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Setup of multiple separate budgets \\ \hline
+      Description & Admin wants to create single separate budget for every specified linked account \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for budgets management
+        \item Admin enters budget value in dollars
+        \item Admin selects linked accounts from list
+        \item Admin clicks checkbox to mark budget creation as separate
+        \item Admin clicks submit button
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Setup of machines termination notifications \\ \hline
+      Description & Admin wants to create specific period of time when users are notified about running machines with possibility to terminate them \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin enters tab for machines termination management
+        \item Admin enters time period users should be notified
+        \item Admin clicks submit button
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & Admin receives notification about money request \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item Admin receives notification via mean of communication
+        \item Admin reads request description and makes decision
+        \item Admin decides to reject request and do not react
+        \end{enumerate}
+        \\ \hline
+      Alternative flow &
+        Happens just after point 2.
+        \begin{enumerate}
+        \item Admin decides to grant more money
+        \item Admin enters new budget limit
+        \item Admin clicks submit button
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \subsection{Actor -- Employee}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & User receives notification about budget \\ \hline
+      Precondition & There was created budget with linked account linked to the user. Budget is surpassed or if forecasted to be.  \\ \hline
+
+      Basic flow &
+        \begin{enumerate}
+        \item User receives notification via mean of communication
+        \item User reads notification description and makes decision what to do next
+        \item User do not need more money and do not react to notification
+        \end{enumerate}
+        \\ \hline
+      Alternative flow &
+        Happens just after point 2.
+        \begin{enumerate}
+        \item User needs more money and clicks button for money request
+        \item User gets redirected to webpage for money request
+        \item user describes reason for more money
+        \item User clicks submit button
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{center}
+      \begin{tabular} {| l | p{13cm} |}
+      \hline
+      Use case & User receives notification about machines termination \\ \hline
+      Precondition & There was created time rule for machines termination notifications. User has working machines on at least one of linked accounts. \\ \hline
+      Basic flow &
+        \begin{enumerate}
+        \item User receives notification via mean of communication
+        \item User reads notification description and makes decision what to do next
+        \item User do not want to terminate any machines and do not react to notification
+        \end{enumerate}
+        \\ \hline
+      Alternative flow &
+        Happens after point 2.
+        \begin{enumerate}
+        \item User decides to terminate some machines
+        \item User clicks terminate buttons corresponding to specific machines
+        \end{enumerate}
+        \\ \hline
+      \end{tabular}
+    \end{center}
+
+
+
     \section{Overall architecture}
     Our solution is based on an architecture that is visualized on Figure 4.1
 
@@ -553,7 +731,7 @@ Instytut Informatyki\\
     The whole tool is bundled up by Docker.
     Following a straightforward instruction everyone is able to create their own Docker image of the application.
     Moreover, all of the configuration is present in one file making it easy to adapt it your way.
-    
+
     A preferable method of deployment is to use AWS Elastic Beanstalk with Docker image.
     In such a way AWS will be responsible for almost everything including capacity provisioning, load balancing and auto-scaling.
 
