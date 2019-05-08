@@ -31,6 +31,42 @@
 \usepackage{grffile}
 \usepackage{svg}
 \usepackage{calc}
+% json formatting
+\usepackage{listings}
+\usepackage{xcolor}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    backgroundcolor=\color{white},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+
+
 \usepackage[backref=true,                %
 hyperref=true,               %
 firstinits=true,             %
@@ -125,6 +161,7 @@ Instytut Informatyki\\
             \item [4.4] Data models
             \item [4.5] Views and design
             \item [4.6] Communication integration
+            \item [4.7] Service termination architecture
         \end{enumerate}
         \item Summary
         \item [A] Deployment and integration guide
@@ -740,6 +777,44 @@ Instytut Informatyki\\
     Waiting for final UI
     \section{Communication integration}
     TODO
+    \section{Service termination architecture}
+    While developing the application, we kept a certain model of organization of resources in mind, which the enterprise user might have in the AWS cloud. A common way of keeping an organization in AWS cloud is via service called “AWS Organizations” \cite{AWSOrganizations}. The service allows to allocate AWS accounts with the predefined roles and permissions for every member of organization. Such structure also isolates resources from each other and lowers the granular control that the root account has on user allocated resources.
+
+For our application to be able to tweak and monitor every machine created by the organization members, every employee of the organization needs to create a certain predefined role which should have the same name across all accounts. The role should have access to all resources that the user wants to be monitored. This can be done by a simple script every time a new member joins to the organization.
+
+Secondly the account, from which the application will be deployed, needs to create an AWS IAM user \cite{AWSIAM}, which will be used by the application to assume the roles created by other members of the organization. To enable the functionality, the administrator needs to give “AssumeRole” permission to the newly created IAM user.
+
+We recommended to take the following steps to grant the above mentioned permission.
+
+
+
+\begin{enumerate}
+
+\item Create an IAM group called “AssumesRolesGroup”.
+\item Go to the permissions section of the group.
+\item Create a custom group policy
+\item Add the following “JSON” to the policy document.
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+\end{lstlisting}
+
+\item Add the IAM user to the “AssumesRoleGroup” group.
+\end{enumerate}
+
+After taking all those steps, you just need to copy the AWS keys of that IAM user account to the application configuration file and you are good to go.
+
 
 
     \begin{thebibliography}{99}
@@ -767,8 +842,20 @@ Instytut Informatyki\\
 
         \bibitem[AWSDocs]{AWSDocs}
         2019, Amazon Web Services, Inc. or its affiliates.
-        \textit{Amazon AWS documentation}.
+        \textit{AWS documentation}.
         \textit{https://docs.aws.amazon.com}.
+        Accessed - 01 April 2019.
+
+        \bibitem[AWSIAM]{AWSIAM}
+        2019, Amazon Web Services, Inc. or its affiliates.
+        \textit{AWS Identity and Access Management (IAM) documentation}.
+        \textit{https://docs.aws.amazon.com/iam/index.html}.
+        Accessed - 01 April 2019.
+
+        \bibitem[AWSOrganizations]{AWSOrganizations}
+        2019, Amazon Web Services, Inc. or its affiliates.
+        \textit{AWS organizations documentation}.
+        \textit{https://docs.aws.amazon.com/organizations/index.html}.
         Accessed - 01 April 2019.
 
         \bibitem[Cloudability]{Cloudability}
