@@ -497,174 +497,48 @@ Instytut Informatyki\\
 
     \subsection{Actor -- AWS cost optimization admin}
 
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Adding employee to the system as a new user \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for users management
-        \item Admin fills username and selects accounts available for specific employee
-        \item Admin submits adding new user using button
-        \end{enumerate}
-        \\
-      \hline
-      \end{tabular}
-    \end{center}
+    Admin is a person designed to have an access to AWS Cost Optimization platform. Most of the interactions happen throught application website.
 
-    \begin{center}
-      \begin{tabular} {| l | p{12cm} |}
-      \hline
-      Use case & Removing existing user \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for users management
-        \item Admin finds specific user in the user list
-        \item Admin clicks button for user removal
-        \item Admin confirms his intent in modal that showed after previous action
-        \end{enumerate}
-        \\ \hline
-      Alternative flow & In point 4. Admin notices mistake and clicks cancel button in modal. After that Admin starts again from point 1. \\
-      \hline
-      \end{tabular}
-    \end{center}
+    First of all admin can configure users inside the application. There are following possible actions using configuration tab:
 
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Adding communication to existing user \\ \hline
-      Description & Adding new destination for user notifications \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for users management
-        \item Admin fills fields describing new mean of communication
-        \item Admin submits communication creation
-        \item Admin selects specific user from user list
-        \item Admin selects communication from the list and adds it to the user
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
+    \begin{enumerate}
+        \item Adding employee
+        \item Adding contact to employee (currently only Slack)
+        \item Linking account to specific employee
+        \item Defining timeframe for machines termination suggestions
+    \end{enumerate}
+    It is important to mention that that most of the similar actions like editing and deleting are possible.
 
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Setup of one budget \\ \hline
-      Description & Admin wants to create single budget for linked accounts/tags \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for budgets management
-        \item Admin enters budget value in dollars
-        \item Admin selects linked accounts/tags from lists connecting them to budget
-        \item Admin clicks submit button
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
-
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Setup of multiple separate budgets \\ \hline
-      Description & Admin wants to create single separate budget for every specified linked account \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for budgets management
-        \item Admin enters budget value in dollars
-        \item Admin selects linked accounts from list
-        \item Admin clicks checkbox to mark budget creation as separate
-        \item Admin clicks submit button
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
-
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Setup of machines termination notifications \\ \hline
-      Description & Admin wants to create specific period of time when users are notified about running machines with possibility to terminate them \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin enters tab for machines termination management
-        \item Admin enters time period users should be notified
-        \item Admin clicks submit button
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
-
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & Admin receives notification about money request \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item Admin receives notification via mean of communication
-        \item Admin reads request description and makes decision
-        \item Admin decides to reject request and do not react
-        \end{enumerate}
-        \\ \hline
-      Alternative flow &
-        Happens just after point 2.
-        \begin{enumerate}
-        \item Admin decides to grant more money
-        \item Admin enters new budget limit
-        \item Admin clicks submit button
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
+    Despite configuration admin can have insight into AWS costs looking at dashboards with charts. It is also possible to customize charts to show only subset of costs.
 
     \subsection{Actor -- Employee}
+    Ordinary employee do not have access to the platform itself. Most of the interactions happen throught Slack. There are a few situations when user receives Slack message from an application bot:
 
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & User receives notification about budget \\ \hline
-      Precondition & There was created budget with linked account linked to the user. Budget is surpassed or if forecasted to be.  \\ \hline
+    \begin{enumerate}
+        \item Surpassing a budget
+        \item Budget is forecasted to being surpassed
+        \item Machine on AWS works in specific timeframe
+    \end{enumerate}
 
-      Basic flow &
-        \begin{enumerate}
-        \item User receives notification via mean of communication
-        \item User reads notification description and makes decision what to do next
-        \item User do not need more money and do not react to notification
-        \end{enumerate}
-        \\ \hline
-      Alternative flow &
-        Happens just after point 2.
-        \begin{enumerate}
-        \item User needs more money and clicks button for money request
-        \item User gets redirected to webpage for money request
-        \item user describes reason for more money
-        \item User clicks submit button
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
+    If any of the budgets linked to the employee's accounts are surpassed employee will receive notification. Additionally if there is a budget defined only on machine tags, someone (defined in the application) will receive notification.
 
-    \begin{center}
-      \begin{tabular} {| l | p{13cm} |}
-      \hline
-      Use case & User receives notification about machines termination \\ \hline
-      Precondition & There was created time rule for machines termination notifications. User has working machines on at least one of linked accounts. \\ \hline
-      Basic flow &
-        \begin{enumerate}
-        \item User receives notification via mean of communication
-        \item User reads notification description and makes decision what to do next
-        \item User do not want to terminate any machines and do not react to notification
-        \end{enumerate}
-        \\ \hline
-      Alternative flow &
-        Happens after point 2.
-        \begin{enumerate}
-        \item User decides to terminate some machines
-        \item User clicks terminate buttons corresponding to specific machines
-        \end{enumerate}
-        \\ \hline
-      \end{tabular}
-    \end{center}
+    Message sent by bot is rather simple. It consists of the title, description with budget information and button. Clicking the button redirects to website, which allows employee to request more money from manager. There user can find a place for the request reasoning and submit button.
 
+    \bigskip
+
+    We can imagine example scenario:
+    \begin{enumerate}
+        \item Budget is being surpassed
+        \item Employee receives message from bot on Slack
+        \item Employee analyzes the description
+        \item Employee decides to request more money and clikcs the button
+        \item Employee is redirected to the request website
+        \item Employee completes and submits request form
+    \end{enumerate}
+
+    \bigskip
+
+    Situation with mechines termination is very similar. If machine linked to the account owned by the employee is running in defined timeframe, notification will be triggered. Message body contains machine description and also termination button. After clicking mentioned button user can instantly terminate corresponding machine.
 
 
     \section{Overall architecture}
