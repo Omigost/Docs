@@ -428,18 +428,18 @@ Instytut Informatyki\\
 
     \chapter{Project development}
 
-    In this section we will describe the way we developed the application -- managament and organization of work along with supporting tools.
+    In this section we describe the way we developed the application -- management and organization of work along with supporting tools.
 
     \section{Version control}
 
     During development as our version control system we use Git and whole code repository is hosted on GitHub.
     We have chosen this particular service because of a few reasons.
 
-    First of all GitHub\cite{GitHub} is one of the most popular Git hosting service and also has one of the biggest open source communities.
+    First of all GitHub \cite{GitHub} is one of the most popular Git hosting service and also has one of the biggest open source communities.
     It is quite important if we consider possibility of future development of our tool even after finishing this thesis.
 
     The second reason is integration with lots of useful applications.
-    It is easy to use it with different services that improve development process like TravisCI\cite{TravisCI} and Slack\cite{Slack}.
+    It is easy to use it with different services that improve development process like TravisCI \cite{TravisCI} and Slac k\cite{Slack}.
 
     Last but not least, GitHub has a built in issue tracker.
     It can be highly customised and makes project management easier.
@@ -684,7 +684,7 @@ Instytut Informatyki\\
     Additionally, end users are notified about budget or instance events related to their cloud activity through Slack.
 
     \subsection{Role of AWS cloud services}
-    Connecting with Amazon's cloud services not only allows the application to access instance and spending data
+    Connecting with Amazon's cloud services not only allows the application to access machines and spending data
     that is crucial to be able to fulfill the business requirements,
     but many of them also solve many of the problems we would otherwise have to solve ourselves -- resulting
     in time saved and a codebase that is more concise and easier to maintain.
@@ -693,7 +693,7 @@ Instytut Informatyki\\
     \begin{itemize}
         \item Identity and Access Management (IAM) -- provision of the main Amazon account ID that is used in other services,
         \item Organizations -- insight into structure of the Organization used by the company, including listing accounts,
-        \item Budgets -- configurable spending watches that trigger a SNS notification whenever a budget limit is or is going to be exceeded,
+        \item Budgets -- service keeping eye on spendings that triggers a SNS notification whenever a budget limit is or is going to be exceeded,
         \item SNS -- alert notifications for backend that let it know about spendings events,
         \item Cost Explorer -- data for graph visualizing spendings in frontend,
         \item EC2/RDS -- information about state of instances running on the account.
