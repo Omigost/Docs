@@ -816,6 +816,37 @@ We recommended to take the following steps to grant the above mentioned permissi
 After taking all those steps, you just need to copy the AWS keys of that IAM user account to the application configuration file and you are good to go.
 
 
+    \chapter{Summary}
+    The purpose of the project was to implement a solution for optimizing cloud costs
+    in a typical medium-sized company according to needs reported by Sumologic.
+    From two approaches that were suggested by the ordering party,
+    we chose one that was more software-focused rather than analytic.
+
+    Development spanned a period of about a half of a year and planning and preparations took us
+    a few more months.
+    We developed our application in irregular iterations that each of us adjusted
+    to their schedule.
+    Additionally, we held meetings with our promotor roughly every 2-3 weeks
+    as well as with the contractor when we needed to consult development and requirement details.
+    The company expressed a huge interest in the implementation of the project
+    as well as further development of it.
+
+    (<TODO>)In late stage of the development phase our system was tested
+    by a sample group of employees at Sumologic, who provided us additional feedback
+    that allowed us to further improve the product.(</TODO>)
+
+    In the end we built a system that focuses on two main features:
+    - easily manageable AWS Budgets,
+    - automatic machine termination,
+    both of which benefit heavily from a Slack integration.
+
+    The product is a web application consisting of Java Spring server and Typescript browser
+    frontend.
+    The solution is deployed along a Postgres relational database with a Docker container
+    on a Beanstalk instance.
+    The project is fully open-source, released under MIT license
+    and available on Github.
+
 
     \begin{thebibliography}{99}
         \addcontentsline{toc}{chapter}{Bibliography}
