@@ -314,7 +314,9 @@ Instytut Informatyki\\
 
     The common case that is unresolved is the distribution of research and development resources.
     We observed that there exists no tool that would support request for resources of individual worker with regards to custom management propagations as specified by client bussiness model.
-    Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack Slack support and beforementioned propagation abilities.
+    Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack
+    Slack (team collaboration toolkit, communication service) support
+    and beforementioned propagation abilities.
 
     There exists an obvious gap in the market, that our solution, \textit{Omigost}, will try to cover.
     Having one versatile tool removes the need for using few detached pieces of software.
@@ -439,7 +441,7 @@ Instytut Informatyki\\
     It is quite important if we consider possibility of future development of our tool even after finishing this thesis.
 
     The second reason is integration with lots of useful applications.
-    It is easy to use it with different services that improve development process like TravisCI \cite{TravisCI} and Slac k\cite{Slack}.
+    It is easy to use it with different services that improve development process like TravisCI \cite{TravisCI} and Slack\cite{Slack}.
 
     Last but not least, GitHub has a built in issue tracker.
     It can be highly customised and makes project management easier.
@@ -665,15 +667,86 @@ Instytut Informatyki\\
     In such a way AWS will be responsible for almost everything including capacity provisioning, load balancing and auto-scaling.
 
     \section{Data models}
-    Waiting for final notifications implementation
+    TODO Waiting for final notifications implementation
+
     \section{Views and design}
-    Waiting for final UI
+    TODO Waiting for final UI
+
     \section{Communication integration}
-    The application is designed for two groups of users: the employees and the amdinistranstrators. The user interface for the administrator is a simple UI which not only helps to tweak the application settings but also provides different metrics and statistics. On the other hand, the employees interact with the application from the Slack bot’s interface. The Slack bot sends notification to the users when they cross a predefined budget or leave instances running after the business hours. 
+    The application is designed for two groups of users: the employees and the administrators.
+    While the frontend interface we describe in chapter 4.3.1 is created mainly for the usage
+    of administrators, interaction between the system and the employees is mostly
+    taken care via Slack.
 
-    The implementation of the machine termination communication has certain subtleties.  The application doesn’t keep track of the sent notification; it just tracks the timestamps last time a person was notified via any channel. It allows us to limit the number notifications and not spam the user. As the communication is asynchronous between application and the end user, we do not rely on immediate response. Instead, we bundle the message with the encrypted user AWS Id and the timestamp of the notification. We also keep the encryption keys in the databases for the other instances of the application to be able to handle any request. The tokens help us to identify the user, implement token timeout and make sure that nobody from outside can stop the application on behalf of the users. Such architecture helps us to keep the application stateless and increases the overall security of the system. 
+    Slack apps offer many customization and extenstion options, but to cover needs of Omigost
+    users we mainly relied on a bot feature.
 
-    TODO communication for crossing the budgets. 
+    \subsection{Setup and configuration}
+
+    Basically, when an administrator wants to use Omigost with Slack, at first they need
+    to install an Omigost Slack app, choosing from a range of other apps
+    available on Slack's app page.
+    Alternatively, they can also set up the app themselves in their
+    Slack collaboration workspace.
+    As a result an Omigost bot capable of messaging users is added to the workspace.
+    The administrator is also provided with an API token that they can enter in
+    the main Omigost server configuration for it to be able
+    to connect with that bot.
+    The administrator should then provide Slack usernames in attached
+    workspace for each user in a dedicated configuration panel.
+    He also configures who among those users should be considered an administrator
+    so the system can also notify him.
+
+    \subsection{Messaging details}
+
+    The integration itself is made possible thanks to the REST API
+    that Slack exposes for each instance of our Slack app.
+    Every time our app needs to message a user, it issues HTTP
+    calls that specify the message content, potential attachments and destination.
+
+    To allow interactions with the system, messages issued by Omigost can contain either links
+    or actions.
+    We use links to route users to forms that they can fulfill to provide additional
+    info to the system. The forms use short-lived, single-use generated tokens for identifying
+    correlation between form payload and an event that this payload responds to.
+
+    \subsection{Slack message use cases}
+
+    The Slack bot sends notification to the users when they cross
+    a predefined budget or leave instances running after the business hours.
+
+    Budget notification flow is as follows: on an event of the system detecting
+    either forecasting or detecting a budget overflow, the system collects
+    a list of users responsible for machines that are related to that budget.
+    To each of those users we send a message that contains actual or potential
+    budget overflow details as well as a link to a form where that user can request
+    an increase to the budget limit.
+    Responding via such a form results in the system notifying administrators
+    about a new limit increase request so they can then decide whether to comply
+    with the request, and then act accordingly.
+
+    Machine termination is suggested to users with messages when bussiness hours of a day
+    are nearing to an end.
+    The messages tell the user how many machines are running at the moment
+    and provides a set of actions that enable the user to conveniently stop
+    or terminate them.
+
+    The implementation of the machine termination communication has certain subtleties.
+    Comparing to budget messages, the application doesn’t keep track of messages
+    related to machine termination, but
+    only tracks the timestamps of the last time a person was notified via any channel.
+    This allows us to limit the number of notifications and not spam the user.
+
+    As the communication is asynchronous between application and the end user,
+    we do not rely on immediate response.
+    Instead, we bundle the message with the encrypted user AWS id
+    and the timestamp of the notification.
+    We also keep the encryption keys in the databases for the other instances
+    of the application to be able to handle any request.
+    The key-timestamp pairs help us identify the user, implement action timeout
+    and make sure that nobody from outside can stop the application on behalf of the users.
+    Such architecture helps us keep the application stateless
+    and increases the overall security of the system.
 
     \section{Service termination architecture}
     While developing the application, we kept a certain model of organization of resources in mind, which the enterprise user might have in the AWS cloud. A common way of keeping an organization in AWS cloud is via service called “AWS Organizations” \cite{AWSOrganizations}. The service allows to allocate AWS accounts with the predefined roles and permissions for every member of organization. Such structure also isolates resources from each other and lowers the granular control that the root account has on user allocated resources.
