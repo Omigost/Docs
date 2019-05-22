@@ -669,7 +669,12 @@ Instytut Informatyki\\
     \section{Views and design}
     Waiting for final UI
     \section{Communication integration}
-    TODO
+    The application is designed for two groups of users: the employees and the amdinistranstrators. The user interface for the administrator is a simple UI which not only helps to tweak the application settings but also provides different metrics and statistics. On the other hand, the employees interact with the application from the Slack bot’s interface. The Slack bot sends notification to the users when they cross a predefined budget or leave instances running after the business hours. 
+
+    The implementation of the machine termination communication has certain subtleties.  The application doesn’t keep track of the sent notification; it just tracks the timestamps last time a person was notified via any channel. It allows us to limit the number notifications and not spam the user. As the communication is asynchronous between application and the end user, we do not rely on immediate response. Instead, we bundle the message with the encrypted user AWS Id and the timestamp of the notification. We also keep the encryption keys in the databases for the other instances of the application to be able to handle any request. The tokens help us to identify the user, implement token timeout and make sure that nobody from outside can stop the application on behalf of the users. Such architecture helps us to keep the application stateless and increases the overall security of the system. 
+
+    TODO communication for crossing the budgets. 
+
     \section{Service termination architecture}
     While developing the application, we kept a certain model of organization of resources in mind, which the enterprise user might have in the AWS cloud. A common way of keeping an organization in AWS cloud is via service called “AWS Organizations” \cite{AWSOrganizations}. The service allows to allocate AWS accounts with the predefined roles and permissions for every member of organization. Such structure also isolates resources from each other and lowers the granular control that the root account has on user allocated resources.
 
