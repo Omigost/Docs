@@ -145,22 +145,22 @@ Instytut Informatyki\\
             \item [2.1] Motivation
             \item [2.2] Overview of exisiting solutions
             \item [2.3] Conclusions
-            \item [2.4] Our solution
-        \end{enumerate}
-        \item Project development
-        \begin{enumerate}
-            \item [3.1] Version control
-            \item [3.2] Continuous integration
-            \item [3.3] Communication
-            \item [3.4] Workflow
         \end{enumerate}
         \item Tool for AWS cost optimization
         \begin{enumerate}
-            \item [4.1] Use cases
-            \item [4.2] Overall architecture
-            \item [4.3] Technology stack
-            \item [4.4] Communication integration
-            \item [4.5] Service termination architecture
+            \item [3.1] Our solution
+            \item [3.2] Use cases
+            \item [3.3] Overall architecture
+            \item [3.4] Technology stack
+            \item [3.5] Communication integration
+            \item [3.6] Service termination architecture
+        \end{enumerate}
+        \item Project development
+        \begin{enumerate}
+            \item [4.1] Version control
+            \item [4.2] Continuous integration
+            \item [4.3] Communication
+            \item [4.4] Workflow
         \end{enumerate}
         \item Summary
         \item [A] Deployment and integration guide
@@ -537,7 +537,10 @@ Instytut Informatyki\\
     Unfortuantely those tools are rather simple and do not satisfy
     all of the needs of potential clients.
 
-    \newpage
+    \chapter{Tool for AWS cost optimization}
+
+    In this chapter we will describe the whole application -- \textit{Omigost}.
+
     \section{Our solution}
 
     Omigost is an app that focuses on two main features:
@@ -549,98 +552,7 @@ Instytut Informatyki\\
     as well as uses Slack integration as a convenient and not overly intrusive mean
     of providing employees a simplified way of saving company's money in their day-to-day work.
 
-    TODO a little more of the overview of the app and its business cases
-
-    TODO idea - how about moving this to beginning
-    of Chapter 4 (new section), then swapping Chapters 3 and 4?
-
-    \chapter{Project development}
-
-    In this section we describe the way we developed
-    the application -- management and organization of work along with supporting tools.
-
-    \section{Version control}
-
-    During development as our version control system we use Git
-    and whole code repository is hosted on GitHub.
-    We have chosen this particular service because of a few reasons.
-
-    First of all GitHub~\cite{GitHub} is one of the most popular Git hosting services
-    and also has one of the largest open source communities.
-    This is quite important, especially when considering a possibility of
-    future development of the tool after finishing this thesis.
-
-    The second reason is integration with lots of useful applications.
-    It is easy to use it with different services that improve the development
-    process like TravisCI~\cite{TravisCI} and Slack~\cite{Slack}.
-
-    Last but not least, GitHub has a built in issue tracker.
-    It can be highly customised and makes project management easier.
-    We created dashboard divided into a few sections, which separate tasks
-    in different stages of development.
-    Everything is automated -- depending on actions performed by users
-    like merging Pull Requests (PRs), issues are moved between sections.
-    In order to help prioritize tasks we employed GitHub's issue tagging system.
-
-    \section{Continuous Integration}
-
-    For Continuous Integration we use hosted service -- TravisCI.
-    It allows us to make sure new changes we introduce
-    are compliant with the rest of our codebase.
-    There are two reasons we have chosen this service:
-    it is easy to configure using only one YAML file
-    inside repository and it is free for open source projects.
-    After every code submission, at the beginning TravisCI
-    performs Smoke Tests trying to build the project
-    and check whether it runs or not.
-    Successful build is followed by both backend and frontend tests.
-
-    \section{Communication}
-
-    All of the communication happens via Slack.
-    It is a convenient collaboration platform allowing team members
-    to communicate efficiently.
-    Everybody can create their own instance of a Slack workspace and then
-    invite other members to join and use it.
-    Various channels can be created there,
-    with persistent message history both public and private.
-    There is also possibility to reach out to any member directly whenever needed.
-    Today Slack is one of the most popular options for groups of any kind to coordinate
-    their teamwork on a daily basis.
-    We use Slack because it is free, it integrates easily with GitHub and it allows
-    us to test Omigost integration with Slack.
-
-    \section{Organization of work}
-
-    We work in iterations that last around one month.
-    At the beginning we define and create new issues.
-    During the iteration everyone chooses desirable task,
-    completes it and makes corresponding Pull Request in GitHub.
-    At the end we discuss our overall progress and plan next steps.
-
-    In order to let a new feature become part of the repository it has to be accepted.
-    It means that Pull Request has to pass Continuous Integration
-    system build and be approved by one of the reviewers.
-    Every issue is solved in a separate branch and every PR
-    is merged directly to the master branch, which allows us
-    to group all commits that are part of one feature or issue.
-
-    \section{Contact with the client company -- Sumo Logic}
-
-    The whole project and the thesis are developed under Sumo Logic mentorship.
-    There is one particular person designated to act as mentor -- Jacek Migdał.
-    He makes sure we are provided with every resource we need to
-    work on the project without unnecessary breaks.
-    Also our mentor helps revolve any ambiguity and gives technical advice.
-
-    Day to day communication with mentor takes place via Slack.
-    Additionally approximately twice a month our team meets
-    in Sumo Logic office to review current progress and overcome major difficulties.
-    Every new feature is discussed beforehand with the company.
-
-    \chapter{Tool for AWS cost optimization}
-
-    In this chapter we will describe the whole application -- \textit{Omigost}.
+    TODO a little more of the insight/overview of the app
 
     \section{Use cases}
 
@@ -716,7 +628,7 @@ Instytut Informatyki\\
 
 
     \section{Overall architecture}
-    Our solution is based on an architecture that is visualized on Figure 4.1
+    Our solution is based on an architecture that is visualized on Figure 3.1
 
     \begin{figure}[!htb]
       \center{\includegraphics[width=\textwidth] {imgs/arch_diagram.png}}
@@ -887,7 +799,7 @@ Instytut Informatyki\\
 
     \section{Communication integration}
     The application is designed for two groups of users: the employees and the administrators.
-    While the frontend interface we describe in chapter 4.3.1 is created mainly for the usage
+    While the frontend interface we describe in section 3.4.1 is created mainly for the usage
     of administrators, interaction between the system and the employees is mostly
     taken care via Slack.
 
@@ -1021,6 +933,90 @@ Instytut Informatyki\\
     the AWS keys of that IAM user account
     to the application configuration file and you are good to go.
 
+
+    \chapter{Project development}
+
+    In this section we describe the way we developed
+    the application -- management and organization of work along with supporting tools.
+
+    \section{Version control}
+
+    During development as our version control system we use Git
+    and whole code repository is hosted on GitHub.
+    We have chosen this particular service because of a few reasons.
+
+    First of all GitHub~\cite{GitHub} is one of the most popular Git hosting services
+    and also has one of the largest open source communities.
+    This is quite important, especially when considering a possibility of
+    future development of the tool after finishing this thesis.
+
+    The second reason is integration with lots of useful applications.
+    It is easy to use it with different services that improve the development
+    process like TravisCI~\cite{TravisCI} and Slack~\cite{Slack}.
+
+    Last but not least, GitHub has a built in issue tracker.
+    It can be highly customised and makes project management easier.
+    We created dashboard divided into a few sections, which separate tasks
+    in different stages of development.
+    Everything is automated -- depending on actions performed by users
+    like merging Pull Requests (PRs), issues are moved between sections.
+    In order to help prioritize tasks we employed GitHub's issue tagging system.
+
+    \section{Continuous Integration}
+
+    For Continuous Integration we use hosted service -- TravisCI.
+    It allows us to make sure new changes we introduce
+    are compliant with the rest of our codebase.
+    There are two reasons we have chosen this service:
+    it is easy to configure using only one YAML file
+    inside repository and it is free for open source projects.
+    After every code submission, at the beginning TravisCI
+    performs Smoke Tests trying to build the project
+    and check whether it runs or not.
+    Successful build is followed by both backend and frontend tests.
+
+    \section{Communication}
+
+    All of the communication happens via Slack.
+    It is a convenient collaboration platform allowing team members
+    to communicate efficiently.
+    Everybody can create their own instance of a Slack workspace and then
+    invite other members to join and use it.
+    Various channels can be created there,
+    with persistent message history both public and private.
+    There is also possibility to reach out to any member directly whenever needed.
+    Today Slack is one of the most popular options for groups of any kind to coordinate
+    their teamwork on a daily basis.
+    We use Slack because it is free, it integrates easily with GitHub and it allows
+    us to test Omigost integration with Slack.
+
+    \section{Organization of work}
+
+    We work in iterations that last around one month.
+    At the beginning we define and create new issues.
+    During the iteration everyone chooses desirable task,
+    completes it and makes corresponding Pull Request in GitHub.
+    At the end we discuss our overall progress and plan next steps.
+
+    In order to let a new feature become part of the repository it has to be accepted.
+    It means that Pull Request has to pass Continuous Integration
+    system build and be approved by one of the reviewers.
+    Every issue is solved in a separate branch and every PR
+    is merged directly to the master branch, which allows us
+    to group all commits that are part of one feature or issue.
+
+    \section{Contact with the client company -- Sumo Logic}
+
+    The whole project and the thesis are developed under Sumo Logic mentorship.
+    There is one particular person designated to act as mentor -- Jacek Migdał.
+    He makes sure we are provided with every resource we need to
+    work on the project without unnecessary breaks.
+    Also our mentor helps revolve any ambiguity and gives technical advice.
+
+    Day to day communication with mentor takes place via Slack.
+    Additionally approximately twice a month our team meets
+    in Sumo Logic office to review current progress and overcome major difficulties.
+    Every new feature is discussed beforehand with the company.
 
     \chapter{Summary}
     The purpose of the project was to implement a solution for optimizing cloud costs
