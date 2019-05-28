@@ -172,7 +172,7 @@ Instytut Informatyki\\
 
     \section{Overview}
 
-    Cloud computing has become recently one of the most important paradigm shifts
+    Cloud computing has recently become one of the most important paradigm shifts
     in the area of real world software engineering.
     It has reshaped the whole process of how applications are developed
     and reduced the amount of upfront
@@ -186,11 +186,11 @@ Instytut Informatyki\\
 
     The term “Cloud computing” can refer to every layer of application stack:
     hardware, hosting platform, software and even to a single function.
-    Cloud computing refers to both the applications delivered as services over the Internet and
-    the hardware and systems software in the data centers that provide these services.
+    Cloud computing refers to both the applications delivered as services over the Internet
+    and the hardware and systems software in the data centers that provide these services.
     The services themselves have long been referred to
     as Software as a Service (SaaS)~\cite{Armbrust}.
-    Generally speaking cloud can be perceived as a shared pool
+    Generally speaking, cloud can be perceived as a shared pool
     of computer resources such as computing capacity,
     transient and persistent memory, which can be acquired or released on demand.
     The undisputed power of cloud computing constitutes
@@ -202,11 +202,13 @@ Instytut Informatyki\\
     Depending on the cloud infrastructure type the payment models
     can be different~\cite{Laatikainen},
     but the common spendings are associated with data storage,
-    data transfer, and computing timeshare.
+    data transfer and computing timeshare.
 
     Nowadays the industry increasingly relies on cloud technologies.
-    More and more companies start or move their products to cloud environment.
-    Unfortunately it comes with additional financial costs imposed by cloud providers.
+    More and more companies start or move their products to cloud environment
+    for multiple reasons, including better scalability
+    and no need of architecture maintenance.
+    Unfortunately, this comes with additional financial costs imposed by cloud providers.
     In order to make business profitable, companies try
     to reduce amont of money they are supposed to pay to the minimum.
     Despite different solutions, like employing specific
@@ -215,48 +217,49 @@ Instytut Informatyki\\
     manage and optimize their cloud usage.
     It is not easy to choose the right tool having that many choices.
 
-    There are some notable solutions of AWS cloud optimization
-    problem -- \textit{AWS Cost Explorer} and \textit{AWS Cost Management},
-    \textit{Cloudability}, \textit{Apptio} and others widely used nowadays.
-    In spite of that fact there is still place for new tools targeting
+    There is a number of notable solutions of AWS cloud optimization
+    problem -- including \textit{AWS Cost Explorer} and \textit{AWS Cost Management},
+    \textit{Cloudability}, \textit{Apptio} -- widely used nowadays.
+    In spite of that fact, there is still place for new tools targeting
     omitted types of clients or wrapping and bundling the greatest features from exisiting ones.
     According to SumoLogic, the client requesting the software,
-    development of which is the main topic of this thesis, there are ways of optimizing costs
+    development of which is the main topic of this thesis, there are methods of optimizing costs
     that have a potential to save large amounts of money, while the technical details
-    of their implementation are not overly complicated
+    of their implementation are not overly complicated.
     Simultaneously, at the moment it seems that there is
     no tool available on the market that approaches the problem
     of AWS optimization in the way that would fulfill
     needs of our client (and other small-to-medium businesses)
-    in such a simple and cost-optimal way.
+    in this simple and cost-optimal way.
 
     \section{Aim of the thesis}
 
     The primary objective of the thesis is to create a tool
     complementing existing solutions used in cloud cost optimisation.
     We focus on Amazon Web Services platform maintained by Amazon
-    as it is one of the most commonly used.
+    as it is one of the most popular cloud service providers.
     In our tool, called \textit{Omigost}, we will try to target small/middle
-    sized companies creating simple and easy to use software
+    sized companies by creating simple and easy to use software
     with flexible configuration options.
 
     \section{Structure of the thesis}
 
     The thesis is structured as follows.
-    In Chapter 2 we describe the problem of cloud cost optimization
-    with additional description of selected existing solutions.
-    In Chapter 3 we write about our development process -- the tools and techniques
+    In Chapter 2 we describe the problem of cloud cost optimization.
+    Additionally, we review and describe a selection of solutions already available
+    on the market.
+    In Chapter 3 we present our solution in detail.
+    We mention, among others, the whole system architecture, API and configuration.
+    Then, in Chapter 4 we write about our development process -- the tools and techniques
     we used to efficiently communicate and coordinate with people involved in the project
     and successfully deliver the product.
-    Then, in Chapter 4 we present our solution in detail.
-    We mention, among others, whole system architecture, API and configuration.
     Finally, in Chapter 5 we sum up the whole thesis.
     In Appendix A we describe how to introduce our solution in a company.
 
     \section{Contribution of each author}
 
     It is important to mention that each author worked to some extent on every part of the thesis.
-    However authors contributed mainly to the following parts:
+    However authors contributed mainly to the following parts throughout the project:
 
     \begin{itemize}
         \item Michał Ołtarzewski
@@ -357,15 +360,15 @@ Instytut Informatyki\\
 
     \section{Motivation}
 
-    As there are plenty of various billing models for cloud services~\cite{Laatikainen},
+    As there is plenty of various billing models for cloud services~\cite{Laatikainen},
     the effective management of them became a tough problem.
-    The ease of resource allocation led to situation when tracking tiniest details of billings
-    is an unaffordable challenge.
+    The ease of resource allocation led to a situation where tracking all of
+    the tiniest details of the billings is an unaffordable challenge.
 
-    However, according to our client, some businesses they are in contact with
-    (as well as theirs) reported a demand for a tool that would provide budgeting management
+    However, according to our client, some businesses the client is in contact with
+    (as well as himself) reported a demand for a tool that would provide budgeting management
     and basic machine termination automation.
-    Such tool may not cover as many use cases as the tools
+    Such a tool may not cover as many use cases as the tools
     available on the market, but it would allow for huge savings while
     also being simple in implementation and maintenance.
     The tooling that exists is targetting wideworld-scale companies
@@ -374,17 +377,17 @@ Instytut Informatyki\\
     This is a demand in the small-to-medium business market that our solution,
     \textit{Omigost}, attempts to cover.
     Having one versatile tool removes the need for using few detached pieces of software.
-    The most important aspects of our tool are intuitive interface and different types
+    The most important aspects of our tool are an intuitive interface and a variation
     of user notifications, which highly increase spendings clarity
     and help in decisions related to costs cutting.
     We hope it will allow companies to focus more on providing value to their clients
-    and having significantly lower costs in the same time without having to spend resources
-    on extensive toolkit for cost optimization.
+    and have significantly lower costs in the same time without having to spend resources
+    on an extensive toolkit for cost optimization.
     This should be possible to achieve with budget and machine termination solutions
-    that are very simple in concept and implementation, but provide great savings.
+    that are very simple in concept and implementation, but still provide great savings.
 
     During the designing process of Omigost, we decided to dedicate our
-    focus on providing a solution with the following features:
+    attention to providing a solution with the following features:
     \begin{itemize}
         \item Free and Open Source
         \item Easy cloud management without complex knowledge
@@ -446,7 +449,6 @@ Instytut Informatyki\\
     User can define and generate custom reports in a form
     of a data chart spanning a selected time interval
     with chosen time granularity of the samples.
-    % https://aws.amazon.com/aws-cost-management/aws-cost-explorer/
     AWS Cost Explorer is also a basis for AWS Cost Management,
     which is basically a set of predefined reports
     that form an easily accessible dashboard.
@@ -485,7 +487,7 @@ Instytut Informatyki\\
 
     \subsection{SnowSoftware}
 
-    SnowSoftware's toolset, alongside fulfilling some of the more specific usecases
+    SnowSoftware's toolset, alongside fulfilling some of the more specific usecases,
     like optimizing usage of software from SAP Software Solutions or optimizing
     and managing software licenses,
     also has tools that are dedicated to optimizing cloud costs.
@@ -552,31 +554,29 @@ Instytut Informatyki\\
     as well as uses Slack integration as a convenient and not overly intrusive mean
     of providing employees a simplified way of saving company's money in their day-to-day work.
 
-    TODO a little more of the insight/overview of the app
-
     \section{Use cases}
 
-    In this section you can find descriptions of the most common use cases
-    grouped by actors.
-    Every use case assumes company is already
+    In this section you can find the descriptions of the most common use cases
+    grouped by the system actors.
+    Every use case assumes that the company is already
     preconfigured in AWS Organizations.
 
     \subsection{Actor -- AWS cost optimization admin}
 
-    Admin is a person designed to have an access to AWS Cost Optimization platform.
-    Most of the interactions happen throught application website.
+    Admin is somebody who is assumed to have an access to the AWS Cost Optimization platform.
+    Most of the interactions happen through the application website.
 
-    First of all admin can configure users inside the application.
-    There are following possible actions using configuration tab:
+    First of all, the administrator can configure users inside the application.
+    Using the configuration tab, the administrator can undertake the following actions:
 
     \begin{enumerate}
-        \item Adding employee
-        \item Adding contact to employee (currently only Slack)
-        \item Linking account to specific employee
-        \item Defining timeframe for machines termination suggestions
+        \item Adding an employee
+        \item Adding a contact to an employee (currently only Slack)
+        \item Linking an account to a specific employee
+        \item Defining a timeframe for when the system should suggest machine termination
     \end{enumerate}
     It is important to mention that most of the similar
-    actions like editing and deleting are possible.
+    actions, like editing and deleting, are also possible.
 
     Despite configuration admin can have insight into AWS
     costs looking at dashboards with charts.
@@ -585,28 +585,28 @@ Instytut Informatyki\\
     \subsection{Actor -- Employee}
     An ordinary employee does not have access to the platform itself.
     Most of the interactions happen through Slack.
-    There are a few situations when a user can receive Slack message from an application bot:
+    There are a few situations when a user can receive Slack messages from an application bot:
 
     \begin{enumerate}
         \item Surpassing a budget
         \item Budget is forecasted to being surpassed
-        \item Machine on AWS works in specific timeframe
+        \item Machine on AWS works in timeframe specified for machine termination
     \end{enumerate}
 
     If any of the budgets linked to the employee's accounts are surpassed,
-    the employee will receive notification.
+    the employee will receive a notification.
     Additionally, if a budget has a machine tag filter configured,
     account owners of those machines that surpass that budget will be notified.
 
     Messages sent by the bot are rather simple.
-    They consist of the title, a button and description that includes
+    They consist of a title, a button and a description that includes
     information about a triggered budget.
     Clicking the button redirects to a dedicated form website on our frontend
     which allows the employee to request more money from the manager.
 
     \bigskip
 
-    We can imagine example scenario:
+    We can imagine an example scenario:
     \begin{enumerate}
         \item A budget is being surpassed
         \item The employee receives message from the bot on Slack
@@ -621,7 +621,7 @@ Instytut Informatyki\\
     The situation with machine termination is very similar.
     If a machine linked to the account owned by the employee
     is found to be running in defined timeframe, a notification will be triggered.
-    The message body contains machine description, a stop button and a termination button.
+    The message body contains a machine description, a stop button and a termination button.
     By clicking one of those buttons the user can conveniently
     stop or terminate the corresponding machine without having
     to enter AWS' dedicated interface for that purpose.
@@ -649,7 +649,7 @@ Instytut Informatyki\\
 
     \subsection{Role of AWS cloud services}
     Connecting with Amazon's cloud services not only allows the application
-    to access machines and spending data,
+    to access machine and spending data,
     but many of them also solve many of the problems we would otherwise have
     to solve ourselves -- resulting
     in time saved and a codebase that is more concise and easier to maintain.
@@ -658,13 +658,13 @@ Instytut Informatyki\\
     \begin{itemize}
         \item Identity and Access Management (IAM) -- provision of the main
           Amazon account ID that is used in other services
-        \item Organizations -- insight into structure of the Organization
+        \item Organizations -- insight into the structure of the Organization
           used by the company, including listing accounts
-        \item Budgets -- service keeping eye on spendings that triggers
+        \item Budgets -- a service keeping eye on spendings that triggers
           a SNS notification whenever a budget limit is or is going to be exceeded
-        \item SNS -- alert notifications for backend that let it know about spendings events
-        \item Cost Explorer -- data for graph visualizing spendings in frontend
-        \item EC2/RDS -- information about state of instances running on the account
+        \item SNS -- alert notifications for the backend that let it know about spending events
+        \item Cost Explorer -- data for graph visualization of the spendings in the frontend
+        \item EC2/RDS -- information about the state of the instances running on the account
     \end{itemize}
 
     TODO at the end of the project -- check if any other
@@ -672,7 +672,7 @@ Instytut Informatyki\\
 
     \subsection{Backend}
 
-    Backend is the main agent of our application's functionalities.
+    The backend is the main agent of our application's functionalities.
     It is responsible for fetching or receiving data from either
     of other connected resources, parsing it and taking appropriate actions.
     Some of its more important tasks include:
@@ -687,12 +687,12 @@ Instytut Informatyki\\
           so it can be displayed to the user,
         \item receiving configuration or data modification requests
           and adjusting the application environment components to fulfill them,
-        \item checking machine state on preconfigured times
+        \item checking the machine state on preconfigured times
           and notifying users about possible instance optimizations.
     \end{itemize}
 
     \subsection{Frontend}
-    Frontend is a web application that allows the user to see
+    The frontend is a web application that allows the user to see
     and alter the state of the application using a graphical user interface (GUI).
     Its main roles are to:
     \begin{itemize}
@@ -706,43 +706,46 @@ Instytut Informatyki\\
 
     \subsection{Frontend}
 
-    Frontend was written in Typescript~\cite{Typescript} using React~\cite{React} framework.
+    The frontend was written in the Typescript~\cite{Typescript} language
+    using the React~\cite{React} framework.
     Typescript offers both great flexibility and type safety compared to vanilla Javascript.
     It is the most common alternative to Javascript,
-    supported by large bussiness insitutions like Microsoft.
+    supported by large bussiness insitutions, like Microsoft.
     We decided that other alternatives,
-    i.e Reason (or other functional languages compiled to Javascript) or Dart are useful,
-    but still need development and their interoperability is sometimes very limiting factor.
-    All the codebase is lintend using \textit{tslinter}.
+    i.e. Reason (or other functional languages compiled to Javascript) or Dart are useful,
+    but still need development and their interoperability is sometimes a very limiting factor.
+    All the codebase is linted using \textit{tslinter}.
 
-    Typescript code is transpiled using \textit{tsc} and bundled by \textit{webpack}.
-    We do not use any other build tools like
-    \textit{Grunt} or \textit{Gulp} as the backend has its own tooling, i.e Gradle.
-    It would just unnecessarly compilicate building process without any gains.
-    Frontend build is coordinated by npm plugin for Gradle.
+    The Typescript code is transpiled
+    using \textit{tsc} and bundled by \textit{webpack}.
+    We do not use any other build tools, like
+    \textit{Grunt} or \textit{Gulp}, as the backend has its own tooling, i.e. Gradle.
+    It would just unnecessarly compilicate the building process without any gains.
+    The frontend build is coordinated by an npm plugin for Gradle.
 
-    Frontend codebase is split between universal, reusable components
+    The frontend codebase is split between universal,
+    reusable components
     and concrete implementation of user views.
-    That design decision was an effect of following
-    general good programming guidelines.
+    That design decision was an effect of the general good programming guidelines.
     It enables future application contributors and users
     to effectively implement customizations or modification
-    in existing code without unnecessarly big work efforts.
+    in existing code without unnecessarily big work efforts.
+
     The views are split between various \textit{modules}.
     A module is a standalone entity that provides its
-    own button in the sidemenu of application.
-    For increased customizability and modularity each of them
+    own button in the sidemenu of the application.
+    For increased customizability and modularity, each of them
     can be separately disabled or modified.
-    To synchronize the data between separate modules we decided
+    To synchronize the data between the separate modules we decided
     to use \textit{Redux} with its Flux architecture.
-    That allows us to easily persist the application state
+    This allows us to easily persist the application state
     in the local storage of the browser or elsewhere.
-    Redux store is a central storage for information
-    about current modules settings but also serves views routing data,
-    states of dialogs and notifications.
+    The Redux store is a central storage for the information
+    about current module settings but also serves view routing data,
+    state of dialogs and notifications.
 
     We also provided \textit{Jest} test suites
-    as well as documentation generated by \textit{tsdoc}.
+    as well as a documentation generated by \textit{tsdoc}.
     We also decided to utilize \textit{Storybook}
     to easily design and visually test frontend components,
     which for users stands for a complement
@@ -752,29 +755,30 @@ Instytut Informatyki\\
 
     Core of the backend is \textit{Java 8}.
     We have selected this programming language because most of us were familiar with it.
-    Also this language has huge community and lots of useful libraries and frameworks.
+    Also, this language has a huge community and lots of useful libraries and frameworks.
 
     For creation of the whole backend service we have chosen Spring~\cite{Spring} framework.
     It is currently one of the most common choices.
     Spring allows to build web applications imposing usage
-    of design patterns like Model-View-Controller and Dependency Injection.
-    It helps to keep code easily testable and well organized.
-    Additionally it provides various features out of the box,
-    which speeds up development process.
+    of design patterns, like Model-View-Controller and Dependency Injection.
+    It helps to keep the code easily testable and well organized.
+    Additionally, it provides various features out of the box,
+    and this speeds up the development process.
 
-    Gradle~\cite{Gradle} is responsible for build and dependencies management.
-    It is easy to use with various IDEs and has flexible configuration.
-    The main competitor of Gradle is Maven so obviously we considered both.
-    Gradle turned out to be better in terms of performance and usage convenience.
+    Gradle~\cite{Gradle} is responsible for build and dependency management.
+    It is easy to use with various IDEs and has a flexible configuration.
+    The main competitor of Gradle is Maven so we have considered both.
+    For us, Gradle turned out to be the better choice because
+    of its performance and usage convenience.
 
-    For data persistence we have chosen PostgreSQL database.
-    Relational database enforces having strictly defined data model with validation.
-    Performance is not an important aspect for us
-    so there was no need for other types of databases.
+    For data persistence we have chosen a PostgreSQL database.
+    A relational database enforces to have a strictly defined data model with validation.
+    The performance is not that much of an important aspect for us here
+    so there was no need for any other type of a database.
     PostgreSQL is a great open source database with strong data integrity
     and fault-tolerance guaranties.
-    Furthermore, AWS allows setting up PostgreSQL instance with just a few clicks
-    with parameters automatically configured for optimal performance.
+    Furthermore, AWS allows to set up PostgreSQL instances with just a few clicks
+    with parameters that are automatically configured for optimal performance.
 
     In our application we use the following libraries:
     \begin{enumerate}
@@ -787,37 +791,37 @@ Instytut Informatyki\\
     \subsection{Deployment}
 
     The whole tool is bundled up by Docker.
-    Following a straightforward instruction everyone is able
+    Following a straightforward instruction, everyone is able
     to create their own Docker image of the application.
-    Moreover, all of the configuration is present in one file
-    making it easy to adapt it your way.
+    Moreover, all of the configuration is present in one file,
+    making it easy to adapt it in one's way.
 
-    A preferable method of deployment is to use AWS Elastic Beanstalk with Docker image.
-    In such a way AWS will be responsible for almost everything
+    A preferable method of deployment is to use the AWS Elastic Beanstalk with a Docker image.
+    In such a way AWS will be responsible for almost everything,
     including capacity provisioning, load balancing and auto-scaling.
 
 
     \section{Communication integration}
     The application is designed for two groups of users: the employees and the administrators.
     While the frontend interface we describe in section 3.4.1 is created mainly for the usage
-    of administrators, interaction between the system and the employees is mostly
+    of the administrators, the interaction between the system and the employees is mostly
     taken care via Slack.
 
-    Slack apps offer many customization and extension options, but to cover needs of Omigost
-    users we mainly relied on a bot feature.
+    Slack apps offer many customization and extension options, but to cover
+    the needs of Omigost users we mainly relied on a bot feature.
 
     \subsection{Setup and configuration}
 
-    Basically, to be able to use Omigost with Slack, first of all the administrator has
-    to install an Omigost Slack app, choosing from a range of other apps
+    Basically, to be able to use Omigost with Slack, first of all the administrator
+    has to install an Omigost Slack app, choosing from a range of other apps
     available on Slack's app page.
     Alternatively, it is possible to set up the app on one's own
     in a Slack collaboration workspace.
-    As a result an Omigost bot capable of messaging users is added to the workspace.
+    As a result, an Omigost bot capable of messaging users is added to the workspace.
     The administrator is then also provided with an API token that can be entered in
     the main Omigost server configuration for it to be able
-    to connect with that bot.
-    The administrator should then provide Slack usernames in attached
+    to connect to and use that bot.
+    The administrator should then provide Slack usernames in the attached
     workspace for each user in a dedicated configuration panel.
     He also configures who among those users should be considered an administrator
     so the system can also notify him.
@@ -829,10 +833,10 @@ Instytut Informatyki\\
     Every time our app needs to message a user, it issues HTTP
     calls that specify the message content, potential attachments and destination.
 
-    To allow interactions with the system, messages issued by Omigost can contain either links
-    or actions.
-    We use links to route users to forms that they can fulfill to provide additional
-    info to the system.
+    To allow interactions with the system, messages issued by Omigost
+    can contain either links or actions.
+    We use links to route users to forms that they can fulfill
+    to provide additional info to the system.
     The forms use short-lived, single-use generated tokens for identifying
     correlation between form payload and an event that this payload responds to.
 
@@ -847,43 +851,44 @@ Instytut Informatyki\\
     To each of those users we send a message that contains actual or potential
     budget overflow details as well as a button link to a form where that user can request
     an increase to the budget limit.
-    Responding via such a form results in the system notifying administrators
+    Responding via such a form results in the system notifying the administrators
     about a new limit increase request so they can then decide whether to comply
     with the request, and then act accordingly.
 
-    Machine termination is suggested to users with messages when bussiness hours of a day
-    are nearing to an end.
+    Machine termination is suggested to the users with messages
+    when bussiness hours of a day are nearing to an end.
     The messages tell the user how many machines are running at the moment
     and provides a set of actions that enable the user to conveniently stop
     or terminate them.
     After a successful teardown the user is also notified with a "Done!" message.
 
     The implementation of the machine termination communication has certain subtleties.
-    Comparing to budget messages, the application doesn’t keep track of messages
+    Comparing to the budget messages, the application doesn’t keep track of messages
     related to machine termination, but
     only tracks the timestamps of the last time a person was notified via any channel.
     This allows us to limit the number of notifications and not spam the user.
 
-    As the communication is asynchronous between application and the end user,
-    we do not rely on immediate response.
-    Instead, we bundle the message with the encrypted user AWS id
+    As the communication is asynchronous between the application and the end user,
+    we do not rely on an immediate response.
+    Instead, we bundle the message with the encrypted user AWS identificator
     and the timestamp of the notification.
     We also keep the encryption keys in the databases for the other instances
     of the application to be able to handle any request.
     The key-timestamp pairs help us identify the user, implement action timeout
-    and make sure that nobody from outside can stop the application on behalf of the users.
-    Such architecture helps us keep the application stateless
+    and make sure that nobody from the outside can stop the application
+    on behalf of the users.
+    Such an architecture helps us keep the application stateless
     and increases the overall security of the system.
 
     \section{Service termination architecture}
-    While developing the application, we kept a certain model
-    of organization of resources in mind,
+    While developing the application, we kept in mind a certain model
+    of organizing the resources
     which the enterprise user might have in the AWS cloud.
     A common way of keeping an organization in AWS cloud
     is via service called “AWS Organizations”~\cite{AWSOrganizations}.
     The service allows to allocate AWS accounts
-    with the predefined roles and permissions for every member of organization.
-    Such structure also isolates resources from each other
+    with predefined roles and permissions for every member of an organization.
+    Such a structure also isolates resources from each other
     and lowers the granular control that the root account has on user allocated resources.
 
     For our application to be able to tweak and monitor every machine
@@ -891,42 +896,40 @@ Instytut Informatyki\\
     needs to create a certain predefined role
     which should have the same name across all accounts.
     The role should have access to all resources that the user wants to be monitored.
-    This can be done by a simple script every time a new member joins to the organization.
+    This can be done by a simple script every time a new member joins the organization.
 
-    Secondly the account, from which the application will be deployed,
+    Secondly, the account, from which the application will be deployed,
     needs to create an AWS IAM user~\cite{AWSIAM},
     which will be used by the application to assume
     the roles created by other members of the organization.
     To enable the functionality, the administrator needs
-    to give “AssumeRole” permission to the newly created IAM user.
+    to give an “AssumeRole” permission to the newly created IAM user.
 
-    We recommended to take the following steps to grant the above mentioned permission.
-
+    We recommend to take the following steps to grant the above-mentioned permission.
 
 
     \begin{enumerate}
+        \item Create an IAM group called “AssumesRolesGroup”.
+        \item Go to the permissions section of the group.
+        \item Create a custom group policy.
+        \item Add the following “JSON” to the policy document.
 
-    \item Create an IAM group called “AssumesRolesGroup”.
-    \item Go to the permissions section of the group.
-    \item Create a custom group policy.
-    \item Add the following “JSON” to the policy document.
-
-    \begin{lstlisting}[language=json,firstnumber=1]
-    {
-      "Version": "2012-10-17",
-      "Statement": [
+        \begin{lstlisting}[language=json,firstnumber=1]
         {
-          "Effect": "Allow",
-          "Action": [
-            "sts:AssumeRole"
-          ],
-          "Resource": "*"
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "sts:AssumeRole"
+              ],
+              "Resource": "*"
+            }
+          ]
         }
-      ]
-    }
-    \end{lstlisting}
+        \end{lstlisting}
 
-    \item Add the IAM user to the “AssumesRoleGroup” group.
+        \item Add the IAM user to the “AssumesRoleGroup” group.
     \end{enumerate}
 
     After taking all those steps, you just need to copy
@@ -941,86 +944,86 @@ Instytut Informatyki\\
 
     \section{Version control}
 
-    During development as our version control system we use Git
-    and whole code repository is hosted on GitHub.
+    During the development as our version control system we used Git
+    and the whole code repository has been being hosted on GitHub.
     We have chosen this particular service because of a few reasons.
 
-    First of all GitHub~\cite{GitHub} is one of the most popular Git hosting services
+    First of all, GitHub~\cite{GitHub} is one of the most popular Git hosting services
     and also has one of the largest open source communities.
-    This is quite important, especially when considering a possibility of
+    This is quite important -- especially when considering a possibility of
     future development of the tool after finishing this thesis.
 
     The second reason is integration with lots of useful applications.
     It is easy to use it with different services that improve the development
-    process like TravisCI~\cite{TravisCI} and Slack~\cite{Slack}.
+    process, like TravisCI~\cite{TravisCI} and Slack~\cite{Slack}.
 
     Last but not least, GitHub has a built in issue tracker.
     It can be highly customised and makes project management easier.
-    We created dashboard divided into a few sections, which separate tasks
+    We created a dashboard divided into a few sections, which separate tasks
     in different stages of development.
-    Everything is automated -- depending on actions performed by users
-    like merging Pull Requests (PRs), issues are moved between sections.
+    Everything has been automated -- depending on actions performed by users,
+    like merging Pull Requests (PRs), issues have been being moved between sections.
     In order to help prioritize tasks we employed GitHub's issue tagging system.
 
     \section{Continuous Integration}
 
-    For Continuous Integration we use hosted service -- TravisCI.
-    It allows us to make sure new changes we introduce
+    For Continuous Integration we used a hosted service -- TravisCI.
+    It have been allowing us to make sure new changes we introduce
     are compliant with the rest of our codebase.
     There are two reasons we have chosen this service:
     it is easy to configure using only one YAML file
-    inside repository and it is free for open source projects.
+    inside the repository and it is free for open source projects.
     After every code submission, at the beginning TravisCI
-    performs Smoke Tests trying to build the project
-    and check whether it runs or not.
-    Successful build is followed by both backend and frontend tests.
+    has performed Smoke Tests, attempting to build the project
+    and checking whether it runs or not.
+    Successful build has been followed by both backend and frontend tests.
 
     \section{Communication}
 
-    All of the communication happens via Slack.
+    All of the communication has happened via Slack.
     It is a convenient collaboration platform allowing team members
     to communicate efficiently.
     Everybody can create their own instance of a Slack workspace and then
     invite other members to join and use it.
     Various channels can be created there,
     with persistent message history both public and private.
-    There is also possibility to reach out to any member directly whenever needed.
+    There is also a possibility to reach out to any member directly whenever needed.
     Today Slack is one of the most popular options for groups of any kind to coordinate
     their teamwork on a daily basis.
-    We use Slack because it is free, it integrates easily with GitHub and it allows
-    us to test Omigost integration with Slack.
+    We have been using Slack because it is free, it integrates easily with GitHub
+    and it has allowed us to test Omigost integration with Slack easily.
 
     \section{Organization of work}
 
-    We work in iterations that last around one month.
-    At the beginning we define and create new issues.
-    During the iteration everyone chooses desirable task,
-    completes it and makes corresponding Pull Request in GitHub.
-    At the end we discuss our overall progress and plan next steps.
+    We have been working in iterations that lasted around one month.
+    At the beginning we defined and created new issues.
+    During the iteration everyone chose desirable task,
+    then completed it and made a corresponding Pull Request in GitHub.
+    At the end we discussed our overall progress and planned our next steps.
 
-    In order to let a new feature become part of the repository it has to be accepted.
-    It means that Pull Request has to pass Continuous Integration
+    In order to let a new feature become part of the repository it has had to be accepted.
+    It means that Pull Request has had to pass Continuous Integration
     system build and be approved by one of the reviewers.
-    Every issue is solved in a separate branch and every PR
-    is merged directly to the master branch, which allows us
-    to group all commits that are part of one feature or issue.
+    Every issue has been being solved in a separate branch and every PR
+    has been being merged directly to the master branch, which has allowed us
+    to group all commits that has been a part of a single feature or issue.
 
     \section{Contact with the client company -- Sumo Logic}
 
-    The whole project and the thesis are developed under Sumo Logic mentorship.
-    There is one particular person designated to act as mentor -- Jacek Migdał.
-    He makes sure we are provided with every resource we need to
+    The whole project and the thesis has been developed under Sumo Logic mentorship.
+    There has been one particular person designated to act as mentor -- Jacek Migdał.
+    He made sure we are provided with every resource we needed to
     work on the project without unnecessary breaks.
-    Also our mentor helps revolve any ambiguity and gives technical advice.
+    Also, our mentor helped revolve any ambiguity and gave technical advice.
 
-    Day to day communication with mentor takes place via Slack.
-    Additionally approximately twice a month our team meets
-    in Sumo Logic office to review current progress and overcome major difficulties.
-    Every new feature is discussed beforehand with the company.
+    Day to day communication with mentor took place via Slack.
+    Additionally, approximately twice a month our team has been meeting
+    in the Sumo Logic office to review current progress and overcome major difficulties.
+    Every new feature has been discussed beforehand with the company.
 
     \chapter{Summary}
     The purpose of the project was to implement a solution for optimizing cloud costs
-    in a typical medium-sized company according to needs reported by Sumologic.
+    in a typical medium-sized company according to the needs reported by Sumologic.
     From two approaches that were suggested by the ordering party,
     we chose one that was more software-focused rather than analytic.
 
@@ -1032,10 +1035,6 @@ Instytut Informatyki\\
     as well as with the contractor when we needed to consult development and requirement details.
     The company expressed a huge interest in the implementation of the project
     as well as further development of it.
-
-    (<TODO>)In the late stage of the development phase our system was tested
-    by a sample group of employees at Sumologic, who provided us
-    with an additional feedback that allowed us to further improve the product.(</TODO>)
 
     In the end we built a system focusing on simplifying AWS Budgets management
     and machine termination automation,
