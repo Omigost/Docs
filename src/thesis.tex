@@ -667,7 +667,89 @@ Instytut Informatyki\\
     \section{Data models}
     Waiting for final notifications implementation
     \section{Views and design}
-    Waiting for final UI
+    
+    \subsection{General design}
+    
+    The main design principles that we used in application design and implementation were the following ones:
+    \begin{enumerate}
+        \item Interface usability is more important than its look
+        \item The style should be as simple and minimalistic as possible
+        \item Use limited color pallete with few colours that match themselves perfectly        
+    \end{enumerate}
+    
+    The Omigost icons were drawn in Inkscape as SVG graphics and we created primitive, initial mocks in UXPin \cite{UXPin} tool.
+    
+    \subsection{Login view}
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_login.png}
+  
+    The login view is designed with geometric simplicity in mind. It is showing the Omigost basic color palette consisting mostly of red colors.
+    
+    \subsection{Dashboard}
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard.png}
+
+    The very first user experience after logon screen and loading screen is the dashboard. Here you can add customized widgets to display the AWS costs data.
+    The rich and simple interface allows users to select and add new widgets and configure them like the user wants.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard_add.png}
+    
+    \subsection{Budgets}
+    
+    Application user can easily create new budget, change its spending threshold and attach new tags or accounts to the budgets.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_create.png}
+    
+    The budget listing presents a visually simple grid with all reported and forcasted costs as well as comparison charts to quickly compare spendings.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_browse.png}
+    
+    \subsection{Accounts and user management}
+    
+    The account listing allows user to browse all AWS accounts and presents useful details for each of them (i.e ARN, IDs etc.)
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_accounts_browse.png}
+    
+    Similar view exists in users tab to present all created user accounts in the system.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_browse.png}
+    
+    Creation of the new user is a straigtforward process. The user can easily:
+    \begin{enumerate}
+        \item Remove or attach new communication channels to the created users (i.e. connect Slack or emails account to receive notifications),
+        \item Remove or attach new accounts to the user (user will be notified when those accounts will be overbudgeted)
+        \item Delete users or change their properties
+    \end{enumerate}
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_create.png}
+    
+    \subsection{Customization}
+    
+    The views responsible for managing various application settings were spread across settings panels to allow users to easily change them without introducing a configuration option mess.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize.png}
+    
+    User can there:
+    \begin{enumerate}
+        \item Change theming options to customize look and feel of application,
+        \item Change instance settings (i.e. AWS keys, deployment URLs etc.)
+        \item Change enabled extensions and integrations
+        \item Change current notification settings
+    \end{enumerate}
+    
+    The extensions screens allows users to enable or disable dashboard extensions (for example hide the budgets view if we want) or change their settings.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_extensions.png}
+    
+    The instance settings is a straightforward option to manage Omigost deployment settings. You can provide your own services urls for Omigost dependencies
+    (like custom AWS Budgets store service) or change AWS and Slack credentials.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_settings.png}
+    
+    Theming views is useful to change the look and feel of the application to make users comfortable with more friendlier, customized environment.
+    
+    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_theme.png}
+    
     \section{Communication integration}
     TODO
     \section{Service termination architecture}
@@ -880,12 +962,19 @@ After taking all those steps, you just need to copy the AWS keys of that IAM use
         Accessed - 01 April 2019.
         
         \bibitem[Typescript]{Typescript}
-        2019  Microsoft
+        2019 Microsoft
         \textit{Typescript}.
         Typescript language official webpage.
         \textit{https://www.typescriptlang.org/}.
         Accessed - 22 May 2019.
 
+        \bibitem[UXPin]{UXPin}
+        2019 UXPin Inc.
+        \textit{UXPin}.
+        UXPin tool official webpage.
+        \textit{https://www.uxpin.com/}.
+        Accessed - 28 May 2019.
+        
     \end{thebibliography}
 
 \end{document}
