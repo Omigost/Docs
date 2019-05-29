@@ -658,11 +658,13 @@ Instytut Informatyki\\
     \subsection{Deployment}
 
     The whole tool is bundled up by Docker.
-    Following a straightforward instruction everyone is able to create their own Docker image of the application.
+    Following a straightforward instruction everyone is able to create their own Docker
+    image of the application.
     Moreover, all of the configuration is present in one file making it easy to adapt it your way.
 
     A preferable method of deployment is to use AWS Elastic Beanstalk with Docker image.
-    In such a way AWS will be responsible for almost everything including capacity provisioning, load balancing and auto-scaling.
+    In such a way AWS will be responsible for almost everything including capacity provisioning,
+    load balancing and auto-scaling.
 
     \section{Data models}
     Waiting for final notifications implementation
@@ -670,54 +672,64 @@ Instytut Informatyki\\
     
     \subsection{General design}
     
-    The main design principles that we used in application design and implementation were the following ones:
+    The main design principles that we used in application design and implementation were:
     \begin{enumerate}
         \item Interface usability is more important than its look
         \item The style should be as simple and minimalistic as possible
-        \item Use limited color pallete with few colours that match themselves perfectly        
+        \item Use limited color pallete with few colours that match each other perfectly        
     \end{enumerate}
     
-    The Omigost icons were drawn in Inkscape as SVG graphics and we created primitive, initial mocks in UXPin \cite{UXPin} tool.
+    The Omigost icons were drawn in Inkscape as SVG graphics and we created primitive,
+    initial mocks in UXPin \cite{UXPin} tool.
     
     \subsection{Login view}
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_login.png}
   
-    The login view is designed with geometric simplicity in mind. It is showing the Omigost basic color palette consisting mostly of red colors.
+    The login view is designed with geometric simplicity in mind.
+    It is showing the Omigost basic color palette basing mostly on red, which we consider
+    a default main color that can be associated with the main application logo.
     
     \subsection{Dashboard}
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard.png}
 
-    The very first user experience after logon screen and loading screen is the dashboard. Here you can add customized widgets to display the AWS costs data.
-    The rich and simple interface allows users to select and add new widgets and configure them like the user wants.
+    The very first user experience after the logon screen and the loading screen is the dashboard.
+    Here you can add customized widgets to display the AWS costs data.
+    The rich and simple interface allows the users to select and add new widgets
+    and configure them however the user wants.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard_add.png}
     
     \subsection{Budgets}
     
-    Application user can easily create new budget, change its spending threshold and attach new tags or accounts to the budgets.
+    An application user can easily create a new budget,
+    change its spending threshold and attach new tags or accounts to it.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_create.png}
     
-    The budget listing presents a visually simple grid with all reported and forcasted costs as well as comparison charts to quickly compare spendings.
+    The budget listing presents a visually simple grid with all reported and forecasted
+    costs as well as comparison charts to quickly compare spendings.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_browse.png}
     
     \subsection{Accounts and user management}
     
-    The account listing allows user to browse all AWS accounts and presents useful details for each of them (i.e ARN, IDs etc.)
+    The account listing allows user to browse all AWS accounts
+    and presents useful details for each of them (i.e ARN, IDs etc.)
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_accounts_browse.png}
     
-    Similar view exists in users tab to present all created user accounts in the system.
+    Similar view exists in the users tab to present all created user accounts in the system.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_browse.png}
     
     Creation of the new user is a straigtforward process. The user can easily:
     \begin{enumerate}
-        \item Remove or attach new communication channels to the created users (i.e. connect Slack or emails account to receive notifications),
-        \item Remove or attach new accounts to the user (user will be notified when those accounts will be overbudgeted)
+        \item Remove or attach new communication channels
+          to the created users (i.e. connect Slack or emails account to receive notifications),
+        \item Remove or attach new accounts to the user
+          (user will be notified when those accounts will be overbudgeted)
         \item Delete users or change their properties
     \end{enumerate}
     
@@ -725,28 +737,33 @@ Instytut Informatyki\\
     
     \subsection{Customization}
     
-    The views responsible for managing various application settings were spread across settings panels to allow users to easily change them without introducing a configuration option mess.
+    The views responsible for managing various application settings
+    were spread across configuration panels to allow users to easily change
+    them without introducing a configuration option mess.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize.png}
     
-    User can there:
+    Here the user can:
     \begin{enumerate}
-        \item Change theming options to customize look and feel of application,
+        \item Change theming options to customize the look and feel of the application,
         \item Change instance settings (i.e. AWS keys, deployment URLs etc.)
         \item Change enabled extensions and integrations
         \item Change current notification settings
     \end{enumerate}
     
-    The extensions screens allows users to enable or disable dashboard extensions (for example hide the budgets view if we want) or change their settings.
+    The extension screens allow users to enable or disable
+    dashboard extensions (for example hide the budgets view if wanted) or change their settings.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_extensions.png}
     
-    The instance settings is a straightforward option to manage Omigost deployment settings. You can provide your own services urls for Omigost dependencies
+    The instance settings screen is a straightforward way to manage
+    Omigost deployment settings. You can provide your own services URLs for Omigost dependencies
     (like custom AWS Budgets store service) or change AWS and Slack credentials.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_settings.png}
     
-    Theming views is useful to change the look and feel of the application to make users comfortable with more friendlier, customized environment.
+    Theming views is useful to change the look and feel of the application
+    to make users comfortable with a more friendlier, customized environment.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_theme.png}
     
