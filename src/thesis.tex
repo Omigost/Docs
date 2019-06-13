@@ -565,12 +565,13 @@ Instytut Informatyki\\
 
 
     \section{Overall architecture}
-    Our solution is based on an architecture that is visualized on Figure 3.1
 
-    \begin{figure}[!htb]
+    \begin{figure}[!htbp]
       \center{\includegraphics[width=\textwidth] {imgs/arch_diagram.png}}
-      \caption{\label{fig:arch-diag} Draft diagram of the tool architecture}
+      \caption{Draft diagram of the tool architecture\label{fig:arch-diag}}
     \end{figure}
+
+    Our solution is based on an architecture that is visualized on Figure 3.1.
 
     The architecture of our tool can be described as traditional client-server architecture.
     Actors make requests over the HTTP protocol to the system with a web browser
@@ -754,94 +755,145 @@ Instytut Informatyki\\
     
     \subsection{Login view}
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_login.png}
   
-    The login view is designed with geometric simplicity in mind.
+    The login view (Figure 3.2) is designed with geometric simplicity in mind.
     It is showing the Omigost basic color palette basing mostly on red, which we consider
     a default main color that can be associated with the main application logo.
+
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_login.png}}
+      \caption{The login screen\label{fig:scr-login}}
+    \end{figure}
     
     \subsection{Dashboard}
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard.png}}
+      \caption{The dashboard\label{fig:scr-dashboard}}
+    \end{figure}
 
-    The very first user experience after the login screen and the loading screen is the dashboard.
+    The very first user experience after the login screen and the loading screen is the dashboard (Figure 3.3).
     Here you can add customized widgets to display the AWS costs data.
-    The rich and simple interface allows the users to select and add new widgets
-    and configure them however the user wants.
+    A simple interface (Figure 3.4) allows users to select and add new widgets
+    and configure them in any way desired by the user.
+
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard_add.png}}
+      \caption{Adding widgets to the dashboard\label{fig:scr-dashboard-add}}
+    \end{figure}
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard_add.png}
     
     \subsection{Budgets}
     
     An application user can easily create a new budget,
-    change its spending threshold and attach new tags or accounts to it.
+    change its spending threshold and attach new tags or accounts to it
+    using a form shown on Figure 3.5.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_create.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_create.png}}
+      \caption{The budget creation form\label{fig:scr-budget-create}}
+    \end{figure}
     
-    The budget listing presents a visually simple grid with all reported and forecasted
+    The budget listing (Figure 3.6) presents a visually simple grid with all reported and forecasted
     costs as well as comparison charts to quickly compare spendings.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_browse.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_budgets_browse.png}}
+      \caption{The budget browser\label{fig:scr-budget-browse}}
+    \end{figure}
     
     \subsection{Accounts and user management}
     
-    The account listing allows user to browse all AWS accounts
-    and presents useful details for each of them (i.e ARN, IDs etc.)
+    The account listing (Figure 3.7) allows users to browse all AWS accounts
+    and presents useful details for each of them (i.e. ARN, IDs etc.)
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_accounts_browse.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_accounts_browse.png}}
+      \caption{The account list view\label{fig:scr-account-browse}}
+    \end{figure}
     
-    The similar view exists in the users tab to present all created user accounts in the system.
+    The similar view exists in the users tab (Figure 3.8) to present all created user accounts in the system.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_browse.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_users_browse.png}}
+      \caption{The user list view\label{fig:scr-user-browse}}
+    \end{figure}
     
-    Creation of the new user is a straightforward process. The user can easily:
+    Creation of the new user is a straightforward process.
+    The user can, using views from Figures 3.8 and 3.9, easily:
     \begin{enumerate}
         \item Remove or attach new communication channels
-          to the created users (i.e. connect Slack or emails account to receive notifications),
+          to the created users (i.e. connect Slack or email accounts to receive notifications),
         \item Remove or attach new accounts to the user
-          (user will be notified when those accounts will be overbudgeted)
+          (the user will be notified when these accounts will be overbudgeted)
         \item Delete users or change their properties
     \end{enumerate}
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_create.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_users_create.png}}
+      \caption{The user creation form\label{fig:scr-user-create}}
+    \end{figure}
     
     \subsection{Customization}
     
     The views responsible for managing various application settings
-    were spread across configuration panels to allow users to easily change
+    were spread across configuration panels available for access
+    from a central settings view (Figure 3.10) to allow users to easily change
     them without introducing a configuration option mess.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_customize.png}}
+      \caption{The settings view\label{fig:scr-customize}}
+    \end{figure}
     
-    Here the user can:
+    Here the user can change:
     \begin{enumerate}
-        \item Change theming options to customize the look and feel of the application,
-        \item Change instance settings (i.e. AWS keys, deployment URLs etc.)
-        \item Change enabled extensions and integrations
-        \item Change current notification settings
+        \item enabled extensions and integrations (Figure 3.11),
+        \item instance settings (i.e. AWS keys, deployment URLs etc.) (Figure 3.12),
+        \item theming options to customize the look and feel of the application (Figure 3.13),
+        \item current notification settings (Figure 3.14).
     \end{enumerate}
     
-    The extension screens allow users to enable or disable
+    The extension screens (Figure 3.11) allow users to enable or disable
     dashboard extensions (for example hide the budgets view if wanted) or change their settings.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_extensions.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_extensions.png}}
+      \caption{The view management panel\label{fig:scr-extensions}}
+    \end{figure}
     
-    The instance settings screen is a straightforward way to manage
+    The instance settings screen (Figure 3.12) is a straightforward way to manage
     Omigost deployment settings. You can provide your own services URLs for Omigost dependencies
     (like custom AWS Budgets store service) or change AWS and Slack credentials.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_settings.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_settings.png}}
+      \caption{The instance settings view\label{fig:scr-instance-settings}}
+    \end{figure}
     
-    Theming views is useful to change the look and feel of the application
-    to make users comfortable with a more friendlier, customized environment.
+    Theming views (Figure 3.13) are useful to change the look and feel of the application
+    to make users comfortable with a more friendly, customized environment.
     
-    \includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_theme.png}
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_theme.png}}
+      \caption{Theme customization panel\label{fig:scr-theme}}
+    \end{figure}
+
+    Customization settings (Figure 3.14) allow the user to define the timeframe
+    the system should consider for suggesting machine termination
+    to the employees.
+
+    \begin{figure}[!htbp]
+      \center{\includegraphics[width=\textwidth] {imgs/screenshots/screen_customize_notifications.png}}
+      \caption{Notification customization panel\label{fig:scr-notify}}
+    \end{figure}
     
+
     \section{Communication integration}
     The application is designed for two groups of users: the employees and the administrators.
     While the frontend interface we describe in section 3.4.1 is created mainly for the usage
     of the administrators, the interaction between the system and the employees is mostly
-    taken care via Slack.
+    handled via Slack.
 
     Slack apps offer many customization and extension options, but to cover
     the needs of Omigost users we mainly relied on a bot feature.
@@ -865,8 +917,8 @@ Instytut Informatyki\\
     \subsection{Messaging details}
 
     The integration itself is made possible thanks to the REST API
-    that Slack exposes for each instance of our Slack app.
-    Every time our app needs to message a user, it issues HTTP
+    that Slack exposes for each instance of a Slack app.
+    Every time the app needs to send a message to a user, it issues HTTP
     calls that specify the message content, potential attachments and destination.
 
     To allow interactions with the system, messages issued by Omigost
@@ -906,7 +958,7 @@ Instytut Informatyki\\
 
     As the communication is asynchronous between the application and the end user,
     we do not rely on an immediate response.
-    Instead, we bundle the message with the encrypted user AWS identificator
+    Instead, we bundle the message with the encrypted user AWS identifier
     and the timestamp of the notification.
     We also keep the encryption keys in the databases for the other instances
     of the application to be able to handle any request.
@@ -921,7 +973,7 @@ Instytut Informatyki\\
     of organizing the resources
     which the enterprise user might have in the AWS cloud.
     A common way of keeping an organization in AWS cloud
-    is via service called “AWS Organizations”~\cite{AWSOrganizations}.
+    is via a service called “AWS Organizations”~\cite{AWSOrganizations}.
     The service allows to allocate AWS accounts
     with predefined roles and permissions for every member of an organization.
     Such a structure also isolates resources from each other
@@ -968,10 +1020,10 @@ Instytut Informatyki\\
         \item Add the IAM user to the “AssumesRoleGroup” group.
     \end{enumerate}
 
-    After taking all those steps, you just need to copy
+    After taking all those steps, the user only has to copy
     the AWS keys of that IAM user account
-    to the application configuration file and you are good to go.
-
+    to the application configuration file to give the backend server
+    an access to that permission grant.
 
     \chapter{Project development}
 
