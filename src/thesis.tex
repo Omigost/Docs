@@ -173,8 +173,8 @@ Instytut Informatyki\\
 
     \section{Overview}
 
-    Cloud computing has recently become one of the most important paradigm shifts
-    in the area of real world software engineering.
+    Cloud computing has recently become one of the most significant paradigm shifts
+    in the area of real-world software engineering.
     It has reshaped the whole process of how applications are developed
     and reduced the amount of upfront
     investment required to start an internet business.
@@ -183,7 +183,7 @@ Instytut Informatyki\\
     implementation traces back to Multics OS developed by MIT,
     GE and Bell Labs.
     However the idea of time-sharing systems that was the ancestor of a cloud
-    concept was widespread in 60ies~\cite{Markus}.
+    concept was widespread in the 60ies~\cite{Markus}.
 
     The term “Cloud computing” can refer to every layer of application stack:
     hardware, hosting platform, software and even to a single function.
@@ -191,27 +191,27 @@ Instytut Informatyki\\
     and the hardware and systems software in the data centers that provide these services.
     The services themselves have long been referred to
     as Software as a Service (SaaS)~\cite{Armbrust}.
-    Generally speaking, cloud can be perceived as a shared pool
+    Generally speaking, the cloud can be perceived as a shared pool
     of computer resources such as computing capacity,
     transient and persistent memory, which can be acquired or released on demand.
     The undisputed power of cloud computing constitutes
     in its elasticity and granularity: it allows users
-    to ask for hundreds of computers for only 5 minute usage which
-    are shipped during several minutes.
-    Such services are usually offered over remote network connection and users are billed
-    for the portion of the resources they have used.
+    to ask for hundreds of computers for only 5-minute usage which
+    are shipped for several minutes.
+    Such services are usually offered over a remote network connection and users are billed
+    for the portion of the resources, they have used.
     Depending on the cloud infrastructure type the payment models
     can be different~\cite{Laatikainen},
     but the common spendings are associated with data storage,
     data transfer and computing timeshare.
 
-    Nowadays the industry increasingly relies on cloud technologies.
-    More and more companies start or move their products to cloud environment
+    Nowadays, the industry increasingly relies on cloud technologies.
+    More and more companies start or move their products to a cloud environment
     for multiple reasons, including better scalability
-    and no need of architecture maintenance.
+    and no need for architecture maintenance.
     Unfortunately, this comes with additional financial costs imposed by cloud providers.
-    In order to make business profitable, companies try
-    to reduce amont of money they are supposed to pay to the minimum.
+    To make a business profitable, companies try
+    to reduce amount of money, they are supposed to pay to the minimum.
     Despite different solutions, like employing specific
     cloud cost optimization team, more and more firms decide
     to benefit from dedicated software, which is supposed to help
@@ -220,12 +220,12 @@ Instytut Informatyki\\
 
     There is a number of notable solutions of AWS cloud optimization
     problem -- including \textit{AWS Cost Explorer} and \textit{AWS Cost Management},
-    \textit{Cloudability}, \textit{Apptio} -- widely used nowadays.
-    In spite of that fact, there is still place for new tools targeting
-    omitted types of clients or wrapping and bundling the greatest features from exisiting ones.
-    According to SumoLogic, the client requesting the software,
+    \textit{Cloudability}, \textit{Apptio}, \textit{CloudHealth} -- widely used nowadays.
+    In spite of that fact, there is still a place for new tools targeting
+    omitted types of clients or wrapping and bundling the most used features from existing ones.
+    According to Sumo Logic, the client requesting the software,
     development of which is the main topic of this thesis, there are methods of optimizing costs
-    that have a potential to save large amounts of money, while the technical details
+    that have the potential to save substantial amounts of money, while the technical details
     of their implementation are not overly complicated.
     Simultaneously, at the moment it seems that there is
     no tool available on the market that approaches the problem
@@ -236,7 +236,7 @@ Instytut Informatyki\\
     \section{Aim of the thesis}
 
     The primary objective of the thesis is to create a tool
-    complementing existing solutions used in cloud cost optimisation.
+    complementing existing solutions used in cloud cost optimization.
     We focus on Amazon Web Services platform maintained by Amazon
     as it is one of the most popular cloud service providers.
     In our tool, called \textit{Omigost}, we will try to target small/middle
@@ -259,8 +259,8 @@ Instytut Informatyki\\
 
     \section{Contribution of each author}
 
-    It is important to mention that each author worked to some extent on every part of the thesis.
-    However authors contributed mainly to the following parts throughout the project:
+    It is essential to mention that each author worked to some extent on every part of the thesis.
+    However, the authors contributed mainly to the following parts throughout the project:
 
     \begin{itemize}
         \item Michał Ołtarzewski
@@ -298,30 +298,30 @@ Instytut Informatyki\\
     \section{Motivation}
 
     As there is plenty of various billing models for cloud services~\cite{Laatikainen},
-    the effective management of them became a tough problem.
+    the effective management of them became a severe problem.
     The ease of resource allocation led to a situation where tracking all of
     the tiniest details of the billings is an unaffordable challenge.
 
     However, according to our client, some businesses the client is in contact with
-    (as well as himself) reported a demand for a tool that would provide budgeting management
+    (as well as himself) reported demand for a tool that would provide budgeting management
     and basic machine termination automation.
     Such a tool may not cover as many use cases as the tools
     available on the market, but it would allow for huge savings while
     also being simple in implementation and maintenance.
-    The tooling that exists is targetting wideworld-scale companies
-    that are able to require expensive licenses and hire cost-optimization teams.
+    The tooling that exists is targetting wide world-scale companies
+    that can require expensive licenses and hire cost-optimization teams.
 
     This is a demand in the small-to-medium business market that our solution,
     \textit{Omigost}, attempts to cover.
-    Having one versatile tool removes the need for using few detached pieces of software.
+    Having one versatile tool removes the need for using a few detached pieces of software.
     The most important aspects of our tool are an intuitive interface and a variation
     of user notifications, which highly increase spendings clarity
     and help in decisions related to costs cutting.
     We hope it will allow companies to focus more on providing value to their clients
-    and have significantly lower costs in the same time without having to spend resources
+    and have significantly lower costs at the same time without having to spend resources
     on an extensive toolkit for cost optimization.
     This should be possible to achieve with budget and machine termination solutions
-    that are very simple in concept and implementation, but still provide great savings.
+    that are very simple in concept and implementation, but still, provide significant savings.
 
     During the designing process of Omigost, we decided to dedicate our
     attention to providing a solution with the following features:
@@ -358,13 +358,13 @@ Instytut Informatyki\\
 
     AWS Budgets~\cite{AWSDocs} is a part of Amazon Web Services that allows
     to limit how many resources of a certain type are used on AWS
-    throughout a selected period of time (i.e. every month).
-    AWS enables their users to specify the scope of such a budget in detail.
+    throughout a selected period (i.e. every month).
+    AWS enables its users to specify the scope of such a budget in detail.
     For example, one may make a budget only consider costs of those machines
     that are either tagged in a specific way
-    or are owned by a certain group of accounts.
+    or are owned by a defined group of accounts.
 
-    When a limit is either exceeded, close to be exceeded or is forecasted
+    When a limit is either exceeded, close to being exceeded or is forecasted
     to exceed the configured threshold before the end of that period,
     a preconfigured action takes place.
     For such an occasion, the administrator can either choose
@@ -387,7 +387,7 @@ Instytut Informatyki\\
     of a data chart spanning a selected time interval
     with chosen time granularity of the samples.
     AWS Cost Explorer is also a basis for AWS Cost Management,
-    which is basically a set of predefined reports
+    which is a set of predefined reports
     that form an easily accessible dashboard.
     % https://aws.amazon.com/aws-cost-management/
 
@@ -398,8 +398,8 @@ Instytut Informatyki\\
     along with tools for predicting future spendings
     and presenting the real cost of AWS resources in utilisation.
     In comparison to Amazon's native tools, Cloudability
-    also allows management of multiple accounts in the same time.
-    It saves effort of having to set up budgets separately in every owned account.
+    also allows management of multiple accounts at the same time.
+    It saves the effort of having to set up budgets separately in every owned account.
 
     \subsection{Apptio}
 
@@ -419,12 +419,12 @@ Instytut Informatyki\\
     set up checks for business-compliance of a cloud with several standards
     and give customized advice on what could be optimized to reduce wastage,
     while also allowing for creation of custom views of data.
-    Basic tools for budgeting instances, accounts, tags and more, monthly or annually,
+    Essential tools for budgeting instances, accounts, tags and more, monthly or annually,
     and configuring overspend alerts are also available there.
 
     \subsection{SnowSoftware}
 
-    SnowSoftware's toolset, alongside fulfilling some of the more specific usecases,
+    SnowSoftware's toolset, alongside fulfilling some of the more specific use cases,
     like optimizing usage of software from SAP Software Solutions or optimizing
     and managing software licenses,
     also has tools that are dedicated to optimizing cloud costs.
@@ -433,9 +433,9 @@ Instytut Informatyki\\
     including, among others, how SaaS applications are used
     on cloud and whether there are zombie virtual machines~\cite{SnowSaaS}.
 
-    Snow Automation Platform suggests approach based on automated
+    Snow Automation Platform suggests an approach based on automated
     and preconfigured provision of resources.
-    By pre-giving those resources a decommission date one can avoid issue of zombie instances.
+    By pre-giving those resources a decommission date one can avoid the issue of zombie instances.
     It is also possible to preconfigure budgets and schedule machine starts
     and stops to further optimize costs~\cite{SnowBlog}.
 
@@ -444,7 +444,7 @@ Instytut Informatyki\\
     After a lecture and research of those resources publicly available on the Internet
     that describe above-mentioned AWS optimization solutions,
     we concluded that many of the competing tools
-    available on the market don't target simpler usecases that could
+    available on the market don't target simpler use cases that could
     cover needs of multiple small-to-medium businesses that rely on AWS cloud,
     but often rather focus on delivering multifaceted and highly configurable systems.
     These tools also often require costly subscriptions and time spent on maintaining
@@ -465,20 +465,20 @@ Instytut Informatyki\\
     Slack (team collaboration toolkit, communication service) support
     and beforementioned propagation abilities.
 
-    In some cases the software, as it is in case of Cloudability, is too complex
+    In some cases, the software, as it is in case of Cloudability, is too complex
     for an average user and does not provide an easy way
     to incorporate custom business flows into the tool.
 
     Amazon, as one of the leading cloud providers,
-    offers different tools for exploration of expenses.
+    offers different tools for the exploration of expenses.
     Most commonly used options are either their public APIs~\cite{AWSCostManagement}
     or specific SDKs supporting lots of languages.
-    Unfortuantely those tools are rather simple and do not satisfy
+    Unfortunately, those tools are rather simple and do not satisfy
     all of the needs of potential clients.
 
     \chapter{Tool for AWS cost optimization}
 
-    In this chapter we will describe the whole application -- \textit{Omigost}.
+    In this chapter, we will describe the entire application -- \textit{Omigost}.
 
     \section{Our solution}
 
@@ -489,11 +489,11 @@ Instytut Informatyki\\
     \end{enumerate}
 
     as well as uses Slack integration as a convenient and not overly intrusive mean
-    of providing employees a simplified way of saving company's money in their day-to-day work.
+    of providing employees a simplified way of saving a company's money in their day-to-day work.
 
     \section{Use cases}
 
-    In this section you can find the descriptions of the most common use cases
+    In this section, you can find the descriptions of the most common use cases
     grouped by the system actors.
     Every use case assumes that the company is already
     preconfigured in AWS Organizations.
@@ -546,7 +546,7 @@ Instytut Informatyki\\
     We can imagine an example scenario:
     \begin{enumerate}
         \item A budget is being surpassed
-        \item The employee receives message from the bot on Slack
+        \item The employee receives a message from the bot on Slack
         \item The employee analyzes the description
         \item The employee decides to request more money and clicks the button
         \item The employee is redirected to the request form website
@@ -557,7 +557,7 @@ Instytut Informatyki\\
 
     The situation with machine termination is very similar.
     If a machine linked to the account owned by the employee
-    is found to be running in defined timeframe, a notification will be triggered.
+    is found to be running in a defined timeframe, a notification will be triggered.
     The message body contains a machine description, a stop button and a termination button.
     By clicking one of those buttons the user can conveniently
     stop or terminate the corresponding machine without having
@@ -572,15 +572,15 @@ Instytut Informatyki\\
       \caption{\label{fig:arch-diag} Draft diagram of the tool architecture}
     \end{figure}
 
-    The architecture of our tool can be described as a traditional client-server architecture.
+    The architecture of our tool can be described as traditional client-server architecture.
     Actors make requests over the HTTP protocol to the system with a web browser
     using the frontend client application
-    served by the Omigost server or, alternatively, from any kind of a storage
+    served by the Omigost server or from any storage
     service like, for example, Amazon's S3.
     Those requests are then handled by a backend application running on a central server machine.
-    During the handling process our application uses both a local instance
+    During the handling process, our application uses both a local instance
     of a PostgreSQL relational database
-    and a connection with selected Amazon Web Services via a SDK library.
+    and a connection with selected Amazon Web Services via an SDK library.
     Additionally, end users are notified about budget or instance events
     related to their cloud activity through Slack.
 
@@ -588,12 +588,12 @@ Instytut Informatyki\\
     Connecting with Amazon's cloud services not only allows the application
     to access machine and spending data,
     but many of them also solve many of the problems we would otherwise have
-    to solve ourselves -- resulting
+    to explain ourselves -- resulting
     in time saved and a codebase that is more concise and easier to maintain.
 
     Services that are used in the project and their respective roles in it are as follows:
     \begin{itemize}
-        \item Identity and Access Management (IAM) -- provision of the main
+        \item Identity and Access Management (IAM) -- the provision of the main
           Amazon account ID that is used in other services
         \item Organizations -- insight into the structure of the Organization
           used by the company, including listing accounts
@@ -617,7 +617,7 @@ Instytut Informatyki\\
         \item receiving SNS budget alert notifications
           and notifying appropriate users via Slack,
         \begin{itemize}
-            \item providing single use tokens and links
+            \item providing single-use tokens and links
               for non-admin users to be able to request budget limit increases,
         \end{itemize}
         \item fetching and providing raw data for the frontend
@@ -634,7 +634,7 @@ Instytut Informatyki\\
     Its main roles are to:
     \begin{itemize}
         \item request and parse raw data from backend into visual representations of it,
-        \item provide an interface for the user,
+        \item provides an interface for the user,
         \item translate the interface clicks to appropriate backend requests
           and display the results of these requests.
     \end{itemize}
@@ -647,8 +647,8 @@ Instytut Informatyki\\
     using the React~\cite{React} framework.
     Typescript offers both great flexibility and type safety compared to vanilla Javascript.
     It is the most common alternative to Javascript,
-    supported by large bussiness insitutions, like Microsoft.
-    We decided that other alternatives,
+    supported by large business institutions, like Microsoft.
+    We decided that those other alternatives,
     i.e. Reason (or other functional languages compiled to Javascript) or Dart are useful,
     but still need development and their interoperability is sometimes a very limiting factor.
     All the codebase is linted using \textit{tslinter}.
@@ -657,7 +657,7 @@ Instytut Informatyki\\
     using \textit{tsc} and bundled by \textit{webpack}.
     We do not use any other build tools, like
     \textit{Grunt} or \textit{Gulp}, as the backend has its own tooling, i.e. Gradle.
-    It would just unnecessarly compilicate the building process without any gains.
+    It would just unnecessarily complicate the building process without any gains.
     The frontend build is coordinated by an npm plugin for Gradle.
 
     The frontend codebase is split between universal,
@@ -677,7 +677,7 @@ Instytut Informatyki\\
     to use \textit{Redux} with its Flux architecture.
     This allows us to easily persist the application state
     in the local storage of the browser or elsewhere.
-    The Redux store is a central storage for the information
+    The Redux store is central storage for the information
     about current module settings but also serves view routing data,
     state of dialogs and notifications.
 
@@ -690,13 +690,13 @@ Instytut Informatyki\\
 
     \subsection{Backend}
 
-    Core of the backend is \textit{Java 8}.
+    The core of the backend is \textit{Java 8}.
     We have selected this programming language because most of us were familiar with it.
     Also, this language has a huge community and lots of useful libraries and frameworks.
 
-    For creation of the whole backend service we have chosen Spring~\cite{Spring} framework.
+    For the creation of the complete backend service we have chosen Spring~\cite{Spring} framework.
     It is currently one of the most common choices.
-    Spring allows to build web applications imposing usage
+    Spring allows building web applications imposing usage
     of design patterns, like Model-View-Controller and Dependency Injection.
     It helps to keep the code easily testable and well organized.
     Additionally, it provides various features out of the box,
@@ -706,14 +706,14 @@ Instytut Informatyki\\
     It is easy to use with various IDEs and has a flexible configuration.
     The main competitor of Gradle is Maven so we have considered both.
     For us, Gradle turned out to be the better choice because
-    of its performance and usage convenience.
+    of its performance and user convenience.
 
-    For data persistence we have chosen a PostgreSQL database.
+    For data persistence, we have chosen a PostgreSQL database.
     A relational database enforces to have a strictly defined data model with validation.
-    The performance is not that much of an important aspect for us here
+    The performance is not that much of an essential aspect for us here
     so there was no need for any other type of a database.
     PostgreSQL is a great open source database with strong data integrity
-    and fault-tolerance guaranties.
+    and fault-tolerance guarantees.
     Furthermore, AWS allows to set up PostgreSQL instances with just a few clicks
     with parameters that are automatically configured for optimal performance.
 
@@ -764,7 +764,7 @@ Instytut Informatyki\\
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_dashboard.png}
 
-    The very first user experience after the logon screen and the loading screen is the dashboard.
+    The very first user experience after the login screen and the loading screen is the dashboard.
     Here you can add customized widgets to display the AWS costs data.
     The rich and simple interface allows the users to select and add new widgets
     and configure them however the user wants.
@@ -790,11 +790,11 @@ Instytut Informatyki\\
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_accounts_browse.png}
     
-    Similar view exists in the users tab to present all created user accounts in the system.
+    The similar view exists in the users tab to present all created user accounts in the system.
     
     \includegraphics[width=\textwidth] {imgs/screenshots/screen_users_browse.png}
     
-    Creation of the new user is a straigtforward process. The user can easily:
+    Creation of the new user is a straightforward process. The user can easily:
     \begin{enumerate}
         \item Remove or attach new communication channels
           to the created users (i.e. connect Slack or emails account to receive notifications),
@@ -1032,10 +1032,10 @@ Instytut Informatyki\\
     \section{Organization of work}
 
     We have been working in iterations that lasted around one month.
-    At the beginning we defined and created new issues.
-    During the iteration everyone chose desirable task,
+    In the beginning, we defined and created new issues.
+    During the iteration, everyone chose desirable task,
     then completed it and made a corresponding Pull Request in GitHub.
-    At the end we discussed our overall progress and planned our next steps.
+    In the end, we discussed our overall progress and planned our next steps.
 
     In order to let a new feature become part of the repository it has had to be accepted.
     It means that Pull Request has had to pass Continuous Integration
