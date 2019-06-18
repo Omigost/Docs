@@ -31,8 +31,10 @@ all: clean-all compile-all clean-dist
 
 dist/thesis.pdf: src/thesis.tex thesisclass.cls
 	$(TEX) $(TEXFLAGS) src/thesis.tex
+	$(TEX) $(TEXFLAGS) src/thesis.tex
 	
 dist/introduction.pdf: src/introduction.tex
+	$(TEX) $(TEXFLAGS) src/introduction.tex
 	$(TEX) $(TEXFLAGS) src/introduction.tex
 	
 compile-all: dist/thesis.pdf dist/introduction.pdf
