@@ -265,14 +265,12 @@ Instytut Informatyki\\
     To this thesis is attached a CD disc with the source code of the project.
     The most important parts of the code are split into three main folders:
     \begin{itemize}
-        \item `frontend` containing React frontend
-        \item `server` with Spring backend
-        \item `deployment` containing scripts for deploying the application
-            both locally and via Elastic Beanstalk (an AWS cloud service
-            for deploying applications)
+        \item \textbf{frontend} containing React frontend
+        \item \textbf{server} with Spring backend
+        \item \textbf{deployment} containing scripts for deploying the application both locally and via Elastic Beanstalk (an AWS cloud service for deploying applications)
     \end{itemize}
     Every main component of the project is described in
-    `README.md` files placed in the corresponding folders.
+    \textbf{README.md} files placed in the corresponding folders.
 
     \chapter{Problem statement}
 
@@ -439,7 +437,7 @@ Instytut Informatyki\\
     to understand and configure them.
     Many of them also fail to provide features
     that allow for both instance budgeting and machine termination automation.
-    A number of them puts most of their emphasis on analysing
+    A number of them put most of their emphasis on analysing
     usage data rather than helping with instance management.
 
     Our research failed to find a tool that would be a close match to the needs
@@ -458,20 +456,18 @@ Instytut Informatyki\\
     In some cases, the software, as it is in case of Cloudability
     and the toolset provided by AWS, is too complex and low-level
     for an average user in a day to day usage.
-    While covering those specific budgeting and termination needs
+    While covering these specific budgeting and termination needs
     would be possible, it would require lots of time spent
     on research, configuration and maintenance.
 
     Cloudability~\cite{CloudabilityAlerts} offers simple alerts, but they lack
     Slack (team collaboration toolkit, communication service) support
     and beforementioned termination abilities.
-    Tools provided by Amazon also don't have any out-of-the-box
+    Tools created by Amazon also don't have any out-of-the-box
     Slack integration.
     They rather provide basic building blocks that Omigost uses
     to implement handling of the budgeting and termination
     use cases of our client.
-    Amazon doesn't provide a complete service
-    that would provide them.
 
     \chapter{Tool for AWS cost optimization}
 
@@ -563,12 +559,6 @@ Instytut Informatyki\\
 
     \section{Overall architecture}
 
-    \begin{figure}[H]
-      \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/arch_diagram.png}}
-      \caption{Draft diagram of the tool architecture\label{fig:arch-diag}}
-    \end{figure}
-
-    Our solution is based on an architecture that is visualized on Figure 3.1.
 
     The architecture of the tool can be described as traditional client-server architecture.
     Actors make requests over the HTTP protocol to the system with a web browser
@@ -581,6 +571,13 @@ Instytut Informatyki\\
     and a connection with selected Amazon Web Services via an SDK library.
     Additionally, end users are notified about budgets
     and reminded about instances termination through Slack.
+
+    \begin{figure}[H]
+      \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/arch_diagram.png}}
+      \caption{Draft diagram of the tool architecture\label{fig:arch-diag}}
+    \end{figure}
+
+    Our solution is based on an architecture that is visualized on Figure 3.1.
 
     \subsection{Role of AWS cloud services}
     Connecting with Amazon's cloud services not only allows the application
@@ -727,22 +724,22 @@ Instytut Informatyki\\
     including capacity provisioning, load balancing and auto-scaling.
 
     \section{Views and design}
-    
+
     \subsection{General design}
-    
+
     The main design principles that we used in application design and implementation were:
     \begin{enumerate}
         \item Interface usability is more important than its look.
         \item The style should be as simple and minimalistic as possible.
         \item Use limited color pallete with few colours that match each other perfectly.
     \end{enumerate}
-    
+
     The Omigost icons were drawn in Inkscape as SVG graphics and we created primitive,
     initial mocks in UXPin \cite{UXPin} tool.
-    
+
     \subsection{Login view}
-    
-  
+
+
     The login view (Figure 3.2) is designed with geometric simplicity in mind.
     It is showing the Omigost basic color palette basing mostly on red, which we consider
     a default main color that can be associated with the main application logo.
@@ -751,9 +748,9 @@ Instytut Informatyki\\
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_login.png}}
       \caption{The login screen\label{fig:scr-login}}
     \end{figure}
-    
+
     \subsection{Dashboard}
-    
+
     The very first user experience after the login screen and the loading screen is the dashboard (Figure 3.3).
     Here you can add customized widgets to display the AWS costs data.
     A simple interface (Figure 3.4) allows users to select and add new widgets
@@ -768,44 +765,44 @@ Instytut Informatyki\\
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_dashboard_add.png}}
       \caption{Adding widgets to the dashboard\label{fig:scr-dashboard-add}}
     \end{figure}
-    
-    
+
+
     \subsection{Budgets}
-    
+
     An application user can easily create a new budget,
     change its spending threshold and attach new tags or accounts to it
     using a form shown on Figure 3.5.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_budgets_create.png}}
       \caption{The budget creation form\label{fig:scr-budget-create}}
     \end{figure}
-    
+
     The budget listing (Figure 3.6) presents a visually simple grid with all reported and forecasted
     costs as well as comparison charts to quickly compare spendings.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_budgets_browse.png}}
       \caption{The budget browser\label{fig:scr-budget-browse}}
     \end{figure}
-    
+
     \subsection{Accounts and user management}
-    
+
     The account listing (Figure 3.7) allows users to browse all AWS accounts
     and presents useful details for each of them (i.e. ARN, IDs etc.).
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_accounts_browse.png}}
       \caption{The account list view\label{fig:scr-account-browse}}
     \end{figure}
-    
+
     The similar view exists in the users tab (Figure 3.8) to present all created user accounts in the system.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_users_browse.png}}
       \caption{The user list view\label{fig:scr-user-browse}}
     \end{figure}
-    
+
     Creation of the new user is a straightforward process.
     The user can, using views from Figures 3.8 and 3.9, easily:
     \begin{enumerate}
@@ -815,24 +812,24 @@ Instytut Informatyki\\
           (the user will be notified when these accounts will be overbudgeted).
         \item Delete users or change their properties.
     \end{enumerate}
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_users_create.png}}
       \caption{The user creation form\label{fig:scr-user-create}}
     \end{figure}
-    
+
     \subsection{Customization}
-    
+
     The views responsible for managing various application settings
     were spread across configuration panels available for access
     from a central settings view (Figure 3.10) to allow users to easily change
     them without introducing a configuration option mess.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_customize.png}}
       \caption{The settings view\label{fig:scr-customize}}
     \end{figure}
-    
+
     Here the user can change:
     \begin{enumerate}
         \item enabled extensions and integrations (Figure 3.11),
@@ -840,27 +837,27 @@ Instytut Informatyki\\
         \item theming options to customize the look and feel of the application (Figure 3.13),
         \item current notification settings (Figure 3.14).
     \end{enumerate}
-    
+
     The extension screens (Figure 3.11) allow users to enable or disable
     dashboard extensions (for example hide the budgets view if wanted) or change their settings.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_customize_extensions.png}}
       \caption{The view management panel\label{fig:scr-extensions}}
     \end{figure}
-    
+
     The instance settings screen (Figure 3.12) is a straightforward way to manage
     Omigost deployment settings. You can provide your own services URLs for Omigost dependencies
     (like custom AWS Budgets store service) or change AWS and Slack credentials.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_customize_settings.png}}
       \caption{The instance settings view\label{fig:scr-instance-settings}}
     \end{figure}
-    
+
     Theming views (Figure 3.13) are useful to change the look and feel of the application
     to make users comfortable with a more friendly, customized environment.
-    
+
     \begin{figure}[H]
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_customize_theme.png}}
       \caption{Theme customization panel\label{fig:scr-theme}}
@@ -874,7 +871,7 @@ Instytut Informatyki\\
       \center{\includegraphics[width=\textwidth,height=200pt,keepaspectratio] {imgs/screenshots/screen_customize_notifications.png}}
       \caption{Notification customization panel\label{fig:scr-notify}}
     \end{figure}
-    
+
 
     \section{Communication integration}
     The application is designed for two groups of users: the employees and the administrators.
@@ -1084,7 +1081,7 @@ Instytut Informatyki\\
     system build and be approved by one of the reviewers.
     Every issue was being solved in a separate branch and every PR
     was being merged directly to the master branch, which has allowed us
-    to group all commits that has been a part of a single feature or issue.
+    to group all commits that have been a part of a single feature or issue.
 
     \section{Contact with the client company -- Sumo Logic}
 
@@ -1187,13 +1184,6 @@ Instytut Informatyki\\
         \textit{https://aws.amazon.com/aws-cost-management/aws-cost-explorer/}.
         Accessed on 01 April 2019.
 
-        \bibitem[Docker]{Docker}
-        Docker Inc. 2019.
-        \textit{Docker. Enterprise Container Platform for High-Velocity Innovation}.
-        Docker tool frontpage.
-        \textit{https://www.docker.com/}.
-        Accessed on 23 May 2019.
-
         \bibitem[GitHub]{GitHub}
         GitHub, Inc. 2019.
         \textit{GitHub. Built for developers}.
@@ -1221,13 +1211,6 @@ Instytut Informatyki\\
         Omigost project.
         \textit{https://github.com/Omigost/}.
         Accessed on 18 June 2019.
-
-        \bibitem[Project Lombok]{Project Lombok}
-        The Project Lombok Authors. 2009-2019.
-        \textit{Project Lombok}.
-        Project Lombok library frontpage.
-        \textit{https://projectlombok.org/}.
-        Accessed on 01 April 2019.
 
         \bibitem[React]{React}
         Facebook Inc. 2019.
@@ -1291,7 +1274,7 @@ Instytut Informatyki\\
         UXPin tool official webpage.
         \textit{https://www.uxpin.com/}.
         Accessed - 28 May 2019.
-        
+
     \end{thebibliography}
 
 \end{document}
